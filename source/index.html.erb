@@ -10,12 +10,38 @@ title: Ólafur Guðmundsson
                 id: "profile",
                 alt: "My profile photo" %>
   <ul class="list-inline">
-    <li>Twitter:   <%= link_to "@olafurg", "https://twitter.com/olafurg" %></li>
-    <li>LinkedIn:  <%= link_to "/in/olafurg", "https://linkedin.com/in/olafurg" %></li>
-    <li>GitHub:    <%= link_to "/olafurg", "https://github.com/olafurg" %></li>
-    <li>Instagram: <%= link_to "/olafurg", "https://instagram.com/olafurg" %></li>
-    <li>Email:     <%= mail_to "olafurg@gmail.com" %></li>
+    <% icon_height = "40" %>
+    <li>
+      <% link_to "https://twitter.com/olafurg" do %>
+        <%= image_tag "images/social_02.png", height: icon_height, alt: "Twitter" %>
+        @olafurg
+      <% end %>
+    </li>
+    <li>
+      <% link_to"https://linkedin.com/in/olafurg" do %>
+        <%= image_tag "images/social_06.png", height: icon_height, alt: "LinkedIn" %>
+        /in/olafurg
+      <% end %>
+    </li>
+    <li>
+      <% link_to "https://github.com/olafurg" do %>
+        <%= image_tag "images/social_14.png", height: icon_height, alt: "GitHub" %>
+        /olafurg
+      <% end %>
+    </li>
+    <li>
+      <% link_to "https://instagram.com/olafurg" do %>
+        <%= image_tag "images/social_04.png", height: icon_height, alt: "Instagram" %>
+        /olafurg
+      <% end %>
+    </li>
+    <li>
+      <% link_to "mailto:olafurg@gmail.com" do %>
+        <%= image_tag "images/social_46.png", height: icon_height, alt: "Email" %>
+        olafurg@gmail.com
+      <% end %>
+    </li>
   </ul>
-  <p>Working at <%= link_to "Novomatic Lottery Solutions", "http://novomaticls.com" %> 
+  <p>Working at <%= link_to "Novomatic Lottery Solutions", "http://novomaticls.com" %>
     (<abbr title="previously known as">p.k.a.</abbr> Betware).</p>
 </div>
