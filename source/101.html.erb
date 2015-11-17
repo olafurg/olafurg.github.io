@@ -1,23 +1,28 @@
 ---
-title: Computer Security 101
+title: Internet Security 101
 ---
-<div class="starter-template">
+<div class="container-fluid">
   <h1>
     <%= current_page.data.title %>
   </h1>
   <p>
-    The basics that should keep you mostly safe online.
+    Some basics that should keep you a bit safer when surfing online.
     <ul>
-      <li>Remove Adobe Flash (unless you *really* need it)</li>
+      <li>Remove Flash (unless you *really* need it)</li>
       <li>Remove Java (unless you *really* need it)</li>
-      <li>Set plugins as 'click-to-play' in your browser</li>
-      <li>Use different passwords for every website</li>
-      <li>Use a password manager (so you can realistically do ^^)</li>
+      <li>Set plugins as <%= link_to "'click-to-play'", "http://www.howtogeek.com/188059/how-to-enable-click-to-play-plugins-in-every-web-browser/", target: "_blank" %> in your browsers</li>
+      <li>Use different password for each website</li>
+      <li>Use a password manager (so you can realistically do ^^). Or even write them down and store safely. </li>
       <li>Use two-factor authentication (2FA) wherever available</li>
-      <li>Use the following browser extensions: uBlock Origin, HTTPS Everywhere, Privacy Badger</li>
-      <li>Use 'private mode' in your browser when appropriate (such as when visiting sports streaming sites)</li>
+      <li>Use the following browser extensions:
+        <ul>
+          <li><%= link_to "uBlock Origin", "https://github.com/gorhill/uBlock", target: "_blank" %></li>
+          <li><%= link_to "HTTPS Everywhere", "https://www.eff.org/HTTPS-EVERYWHERE", target: "_blank" %></li>
+          <li><%= link_to "Privacy Badger", "https://www.eff.org/privacybadger", target: "_blank" %></li>
+        </ul>
+      <li>Use 'private mode' in your browser when appropriate</li>
       <li>Keep your stuff up to date - programs and operating system</li>
-      <li>Use common sense (if applicable)</li>
+      <li>Use common sense (if available)</li>
     </ul>
   </p>
 </div>
