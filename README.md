@@ -6,6 +6,6 @@ Branches:
  * ```master```: Generated static website, served on [olafurg.com](http://olafurg.com).
 
 To make changes:
-* Make changes in the ```source``` branch.
+* Make changes in the ```source``` branch or a new local branch from there.
 * Merge those changes into the ```master``` branch.
 * Generate and deploy changes using ```middleman deploy --build-before``` from the command line.
