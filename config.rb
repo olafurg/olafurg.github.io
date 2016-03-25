@@ -75,7 +75,7 @@ end
 # This will push to the defined branch of the repo, which will
 # host it on github pages (If this is a github repository)
 activate :deploy do |deploy|
-  deploy.method = :git
+  deploy.deploy_method = :git
   deploy.branch = 'master'
 end
 

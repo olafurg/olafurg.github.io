@@ -2,14 +2,8 @@
 # the following line to use "http://" instead
 source 'https://rubygems.org'
 
-gem "middleman", "~>3.3.12"
-gem "middleman-livereload", "~> 3.1.0"
-gem "middleman-deploy"
+gem "middleman", ">=4.0.0"
+gem "middleman-livereload"
+gem 'middleman-deploy', git: 'https://github.com/middleman-contrib/middleman-deploy', branch: 'master'
 gem "jquery-middleman"
-
-# For faster file watcher updates on Windows:
-gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
-# Windows does not come with time zone data
-gem "tzinfo-data", platforms: [:mswin, :mingw, :jruby]
-
 gem "middleman-google-analytics"
