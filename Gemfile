@@ -7,3 +7,4 @@ gem "middleman-livereload"
 gem 'middleman-deploy', git: 'https://github.com/middleman-contrib/middleman-deploy', branch: 'master'
 gem "jquery-middleman"
 gem "middleman-google-analytics"
+gem "robocop", require: false

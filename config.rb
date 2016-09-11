@@ -48,11 +48,11 @@ end
 #   end
 # end
 
-set :css_dir, 'stylesheets'
+set :css_dir, "stylesheets"
 
-set :js_dir, 'javascripts'
+set :js_dir, "javascripts"
 
-set :images_dir, 'images'
+set :images_dir, "images"
 
 # Build-specific configuration
 configure :build do
@@ -76,7 +76,7 @@ end
 # host it on github pages (If this is a github repository)
 activate :deploy do |deploy|
   deploy.deploy_method = :git
-  deploy.branch = 'master'
+  deploy.branch = "master"
 end
 
 # Google Analytics
