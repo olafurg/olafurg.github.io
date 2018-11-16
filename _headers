@@ -1,0 +1,9 @@
+# Custom headers. 
+# See e.g. 
+# - https://infosec.mozilla.org/guidelines/web_security#x-frame-options
+# - https://www.netlify.com/docs/headers-and-basic-auth/
+
+/*
+  Content-Security-Policy: frame-ancestors 'self'
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
