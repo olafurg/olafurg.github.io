@@ -7,3 +7,7 @@
   Content-Security-Policy: frame-ancestors 'self'
   X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
+
+  # Prevent browsers from incorrectly detecting non-scripts as scripts
+  # https://infosec.mozilla.org/guidelines/web_security#x-content-type-options
+  X-Content-Type-Options: nosniff
