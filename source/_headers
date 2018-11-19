@@ -4,10 +4,18 @@
 # - https://www.netlify.com/docs/headers-and-basic-auth/
 
 /*
-  Content-Security-Policy: frame-ancestors 'self'
   X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
 
   # Prevent browsers from incorrectly detecting non-scripts as scripts
   # https://infosec.mozilla.org/guidelines/web_security#x-content-type-options
   X-Content-Type-Options: nosniff
+
+  # Content Security Policy rules
+  Content-Security-Policy: 
+    default-src https:; # default https
+    img-src 'self'; # only images from same site
+    object-src 'none'; # disable java, silverlight etc.
+    frame-ancestors 'self'; # block site from being framed
+
+  X-Frame-Options: DENY # block site from being framed
