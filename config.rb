@@ -70,6 +70,9 @@ configure :build do
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
+
+  # Force import the _headers file in the build dir.
+  import_file File.expand_path("_headers", config[:source]), "/_headers"
 end
 
 # This will push to the defined branch of the repo, which will
