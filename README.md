@@ -11,6 +11,3 @@ To make changes:
 * GitHub Pages:
   * Merge those changes into the ```master``` branch.
   * Generate and deploy changes using ```middleman deploy --build-before``` from the command line.
-
-Todo:
-* Update Bootstrap
