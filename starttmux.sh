@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 
-session="olafurg-com"
+session="olafurgcom"
 
 tmux start-server
 

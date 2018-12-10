@@ -1,8 +1,8 @@
 body {
-  padding-top: 20px;
+  padding-top: 2rem;
 }
 .starter-template {
-  padding: 40px 15px;
+  padding: 2rem 1rem;
   text-align: center;
 }
 
@@ -15,5 +15,6 @@ p, ul {
 }
 
 img#profile {
-  padding-bottom: 20px;
+  margin-bottom: 15px;
+  height: 150px;
 }
