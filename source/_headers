@@ -12,7 +12,7 @@
   X-Content-Type-Options: nosniff
 
   # Content Security Policy rules
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-R6I9waim8Q3LC7XM20m9TFZdJxChfbLvf7hetlHTIOw=' code.jquery.com www.google-analytics.com cdnjs.cloudflare.com stackpath.bootstrapcdn.com; style-src 'self' mstackpath.bootstrapcdn.com; font-src 'self' mstackpath.bootstrapcdn.com; img-src 'self'; object-src 'none'; frame-ancestors 'self';
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-R6I9waim8Q3LC7XM20m9TFZdJxChfbLvf7hetlHTIOw=' code.jquery.com www.google-analytics.com cdnjs.cloudflare.com stackpath.bootstrapcdn.com; style-src 'self' stackpath.bootstrapcdn.com; font-src 'self' stackpath.bootstrapcdn.com; img-src 'self'; object-src 'none'; frame-ancestors 'self';
 
   X-Frame-Options: DENY # block site from being framed
 
