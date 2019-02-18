@@ -18,3 +18,7 @@ img#profile {
   margin-bottom: 15px;
   height: 150px;
 }
+
+article {
+  margin-bottom: 10em;
+}

@@ -1,0 +1,17 @@
+---
+title: <title><%= ' - ' + current_article.title unless current_article.nil? %></title>
+---
+
+<% wrap_layout :blog_layout do %>
+  
+  <article>
+    <h2><%= current_article.title %> </h2>
+    <p>
+      Published
+      <time datetime="<%= current_article.date %>">
+        <%= current_article.date.strftime('%b %e') %>
+      </time>
+    </p>
+    <%= yield %>
+  </article>
+<% end %>
