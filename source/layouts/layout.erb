@@ -7,13 +7,13 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@olafurg">
     <meta name="twitter:creator" content="@olafurg">
-    <meta name="twitter:title" content="Ólafur Guðmundsson">
-    <meta name="twitter:description" content="Icelander in Serbia">
+    <meta name="twitter:title" content="<%= data.site_info.author %>">
+    <meta name="twitter:description" content="<%= data.site_info.tag  %>">
     <meta name="twitter:image" content="http://olafurg.com/images/profile-olafurg.jpg">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway|Roboto">
 
-    <title><%= current_page.data.title || "Ólafur Guðmundsson" %></title>
+    <title><%= current_page.data.title ||= data.site_info.author %></title>
 
     <%= javascript_include_tag  "all", async: true %>
 
