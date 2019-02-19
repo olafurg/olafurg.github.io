@@ -81,9 +81,3 @@ activate :deploy do |deploy|
   deploy.deploy_method = :git
   deploy.branch = "master"
 end
-
-# Google Analytics
-activate :google_analytics do |ga|
-  ga.tracking_id = "UA-66913239-1"
-  ga.domain_name = "olafurg.com"
-end
