@@ -82,12 +82,6 @@ activate :deploy do |deploy|
   deploy.branch = "master"
 end
 
-# Google Analytics
-activate :google_analytics do |ga|
-  ga.tracking_id = "UA-66913239-1"
-  ga.domain_name = "olafurg.com"
-end
-
 activate :blog do |blog|
   blog.permalink = "blog/{year}/{month}/{day}/{title}.html"
   blog.sources = "blog/{year}-{month}-{day}-{title}.html"
