@@ -66,3 +66,7 @@ img#profile {
   height: 8rem;
   border-radius: 5%;
 }
+
+span.fas,  span.fab {
+  color: #495057;
+}

@@ -1,35 +1,17 @@
-  <div class="starter-template">
-    <h1><%= data.site_info.author %></h1>
+<div class="starter-template">
+  <h1><%= data.site_info.author %></h1>
   <p class="lead"> <%= data.site_info.lead %></p>
   <%= image_tag "images/profile-olafurg.jpg",
-                class: "rounded",
-                id: "profile",
-                alt: "My profile photo" %>
+    class: "rounded",
+    id: "profile",
+    alt: "My profile photo" %>
   <ul class="list-inline">
-    <li class="list-inline-item">
-      <% link_to "https://twitter.com/olafurg" do %>
-        <%= image_tag "images/social_02.png", alt: "Twitter" %>
-      <% end %>
-    </li>
-    <li class="list-inline-item">
-      <% link_to"https://linkedin.com/in/olafurg" do %>
-        <%= image_tag "images/social_06.png", alt: "LinkedIn" %>
-      <% end %>
-    </li>
-    <li class="list-inline-item">
-      <% link_to "https://github.com/olafurg" do %>
-        <%= image_tag "images/social_14.png", alt: "GitHub" %>
-      <% end %>
-    </li>
-    <li class="list-inline-item">
-      <% link_to "https://instagram.com/olafurg" do %>
-        <%= image_tag "images/social_04.png", alt: "Instagram" %>
-      <% end %>
-    </li>
-    <li class="list-inline-item">
-      <% link_to "mailto:olafurg+website@gmail.com" do %>
-        <%= image_tag "images/social_46.png", alt: "Email" %>
-      <% end %>
-    </li>
+    <% data.social.each do |s| %>
+      <li class="list-inline-item">
+        <% link_to s.link do %>
+          <span class="<%= "#{s.font_awesome}" %>"></span>
+        <% end %>
+      </li>
+    <% end %>
   </ul>
 </div>
