@@ -1,0 +1,30 @@
+- twitter:
+  link: "https://twitter.com/olafurg"
+  alt_text: "Twitter @olafurg"
+  font_awesome: "fab fa-twitter fa-2x"
+
+- linkedin:
+  link: "https://linkedin.com/in/olafurg"
+  alt_text: "Linkedin"
+  font_awesome: "fab fa-linkedin fa-2x"
+
+- github:
+  link: "https://github.com/olafurg"
+  alt_text: "GitHub"
+  font_awesome: "fab fa-github fa-2x"
+
+- instagram:
+  link: "https://instagram.com/olafurg"
+  alt_text: "Instagram"
+  font_awesome: "fab fa-instagram fa-2x"
+
+- goodreads:
+  link: "https://www.goodreads.com/olafurg"
+  alt_text: "Goodreads"
+  font_awesome: "fab fa-goodreads fa-2x"
+
+- email:
+  link: "mailto:olafurg+website@gmail.com"
+  alt_text: "Email"
+  font_awesome: "fas fa-at fa-2x"
+

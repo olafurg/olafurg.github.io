@@ -1,0 +1,9 @@
+<ul class="list-inline">
+  <% data.social.each do |s| %>
+    <li class="list-inline-item">
+      <% link_to s.link do %>
+        <span class="<%= "#{s.font_awesome}" %>"></span>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

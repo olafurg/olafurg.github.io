@@ -83,9 +83,10 @@ activate :deploy do |deploy|
 end
 
 activate :blog do |blog|
-  blog.permalink = "blog/{year}/{month}/{day}/{title}.html"
-  blog.sources = "blog/{year}-{month}-{day}-{title}.html"
+  blog.permalink = "blog/{year}/{month}/{title}.html"
+  blog.sources = "blog/articles/{year}-{month}-{day}-{title}.html"
   blog.layout = "article_layout"
   blog.tag_template = "tag.html"
   blog.calendar_template = "calendar.html"
+  blog.paginate = true
 end

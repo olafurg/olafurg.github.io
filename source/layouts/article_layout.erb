@@ -3,15 +3,17 @@ title: <title><%= ' - ' + current_article.title unless current_article.nil? %></
 ---
 
 <% wrap_layout :blog_layout do %>
-  
-  <article>
-    <h2><%= current_article.title %> </h2>
-    <p>
-      Published
-      <time datetime="<%= current_article.date %>">
-        <%= current_article.date.strftime('%b %e') %>
-      </time>
+
+  <div class="blog-post">
+    <h1 class="blog-post-title"><%= current_article.title %></h1>
+    <p class="blog-post-meta">
+    <time datetime="<%= current_article.date %>">
+      <%= current_article.date.strftime('%B %e, %Y') %>
+    </time>
+    <%# by <a href="#">Oli</a> %>
     </p>
     <%= yield %>
-  </article>
+    <hr>
+  </div>
+
 <% end %>
