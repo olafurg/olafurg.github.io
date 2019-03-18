@@ -1,9 +1,10 @@
 ---
-title: Blog - Olafur Gudmundsson
 pageable: true
 per_page: 10
 layout: blog_layout
 ---
+
+<% current_page.data.title = data.site_info.blog_title %>
 
 <% if page_articles.count < 1 %>
   <p>No articles published.</p>

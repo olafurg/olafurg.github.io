@@ -7,6 +7,6 @@
                 alt: "My profile photo" %>
   <%= partial "social_links" %>
   <p>
-    <%= link_to "(b.l.o.g)", "/blog", { class: "to-blog" } %>
+    <%= link_to data.site_info.blog_title, "/blog", { class: "to-blog" } %>
   </p>
 </div>
