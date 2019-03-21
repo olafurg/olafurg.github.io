@@ -10,3 +10,4 @@ gem 'middleman-deploy', "~> 2.0.0.pre.alpha"
 gem "jquery-middleman"
 gem "robocop", require: false
 gem "nokogiri"
+gem "slim"

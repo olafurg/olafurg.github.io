@@ -1,0 +1,5 @@
+ul.list-inline
+  - data.social.each do |s|
+    li.list-inline-item
+      = link_to s.link do
+        span class="#{s.font_awesome}"

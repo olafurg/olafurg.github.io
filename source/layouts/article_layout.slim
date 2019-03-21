@@ -1,0 +1,9 @@
+= wrap_layout :blog_layout do
+
+  .blog-post
+    h1.blog-post-title
+      = current_article.title
+    p.blog-post-meta
+      time datetime="#{current_article.date}"
+        = current_article.date.strftime('%B %e, %Y')
+    = yield

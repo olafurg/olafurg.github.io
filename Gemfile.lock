@@ -114,6 +114,9 @@ GEM
       ffi (~> 1.9)
       rake
     servolux (0.13.0)
+    slim (4.0.1)
+      temple (>= 0.7.6, < 0.9)
+      tilt (>= 2.0.6, < 2.1)
     temple (0.8.1)
     thor (0.20.3)
     thread_safe (0.3.6)
@@ -135,6 +138,7 @@ DEPENDENCIES
   middleman-livereload
   nokogiri
   robocop
+  slim
 
 BUNDLED WITH
    2.0.1

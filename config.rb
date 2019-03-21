@@ -43,8 +43,8 @@ end
 
 # Methods defined in the helpers block are available in templates
 # helpers do
-#   def some_helper
-#     "Helping"
+#   def helper
+#     # helping
 #   end
 # end
 
@@ -56,10 +56,7 @@ set :images_dir, "images"
 
 # Build-specific configuration
 configure :build do
-  # For example, change the Compass output style for deployment
   activate :minify_css
-
-  # Minify Javascript on build
   activate :minify_javascript
 
   # Enable cache buster
@@ -92,3 +89,6 @@ activate :blog do |blog|
   blog.new_article_template = File.expand_path('source/blog/blog_template.erb', __dir__)
   blog.default_extension = ".md"
 end
+
+# Configure slim templating engine
+set :slim, { :format => :html }

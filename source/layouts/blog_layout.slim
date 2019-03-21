@@ -1,0 +1,19 @@
+= wrap_layout :layout do
+  .container
+    header class="blog-header py-3"
+      .row
+        .col-4.d-flex.justify-content-beginning.align-items-center
+          - unless current_page.path == "blog/index.html"
+            = link_to "Blog", "/blog", { class: "text-muted" }
+        .col-4.text-center
+          = link_to data.site_info.blog_title, "/blog", { class: "blog-header-logo text-dark" }
+        .col-4.d-flex.justify-content-end.align-items-center
+          = link_to "olafurg.com", "/", { class: "text-muted" }
+
+    .container role="main"
+      .row
+        .col-md-12
+          = yield
+
+    footer
+      = partial "social_links"

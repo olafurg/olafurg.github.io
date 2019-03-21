@@ -1,0 +1,33 @@
+---
+pageable: true
+per_page: 10
+layout: blog_layout
+---
+
+- current_page.data.title = data.site_info.blog_title
+
+- if page_articles.count < 1
+  p No articles published.
+
+- page_articles.each_with_index do |article, i|
+  .blog-post
+    h2.blog-post-title
+      = link_to article.title, article
+    p.blog-post-meta
+      time datetime="#{article.date}"
+        = article.date.strftime('%B %e, %Y')
+      -# |  by 
+      -# = link_to "Oli", "#"
+    = article.summary(250)
+    p
+      = link_to "Continue reading", article.url
+
+    - unless (1 + i == page_articles.count)
+      hr
+
+- if paginate
+  nav.blog-pagination
+    - if prev_page
+      = link_to 'Newer', prev_page, { class: "btn btn-outline-primary" }
+    - if next_page
+      = link_to 'Older', next_page, { class: "btn btn-outline-primary" }
