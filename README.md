@@ -7,7 +7,10 @@ Branches:
 
 To make changes:
 * Make changes in the ```source``` branch or a new local branch from there, eventually merged back to ```source```.
-* Netlify deploy: Push to GitHub. Netlify will detect a new push to this branch and trigger a deployment automatically.
-* GitHub Pages:
-  * Merge those changes into the ```master``` branch.
-  * Generate and deploy changes using ```middleman deploy --build-before``` from the command line.
+* Deployment:
+  1) Netlify deploy (current):
+     * Push to GitHub.
+     * Netlify will detect a new push to this branch and trigger a deployment automatically.
+  1) GitHub Pages:
+     * Merge those changes into the ```master``` branch.
+     * Generate and deploy changes using ```middleman deploy --build-before``` from the command line.
