@@ -7,3 +7,4 @@
       time datetime="#{current_article.date}"
         = current_article.date.strftime('%B %e, %Y')
     = yield
+    = link_to "< Back", "/blog"
