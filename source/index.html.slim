@@ -1,12 +1,12 @@
-.intro
-  h1
-    = data.site_info.author
-  = image_tag "images/profile-olafurg-2019.jpg",
-                class: "rounded",
-                id: "profile",
-                alt: "Profile photo"
-  = partial "social_links"
-  / p
-  /   = link_to data.site_info.blog_title, "/blog", { class: "to-blog" }
-  /small
-  /  = link_to "CV", "/cv", { class: "text-muted" }
+.container
+  .intro
+    h1
+      = data.site_info.author
+    = image_tag "images/profile-olafurg-2019.jpg",
+                  class: "rounded",
+                  id: "profile",
+                  alt: "Profile photo"
+
+    p InfoSec/cybersecurity, IT, management, and software development
+
+    = partial "social_links"

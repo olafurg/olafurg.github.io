@@ -6,10 +6,6 @@ body {
   color: #343a40;
 }
 
-.container {
-  max-width: 960px;
-}
-
 .intro {
   text-align: center;
 }
@@ -21,11 +17,6 @@ a.to-blog{
 h1, h2, h3, h4, h5, h6 {
   font-family: 'raleway', sans-serif;
 }
-
-p.lead {
-  /* font-size: 1rem; */
-}
-
 
 img#profile {
   margin-bottom: 1.5rem;

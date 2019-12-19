@@ -13,18 +13,22 @@
   alt_text: "GitHub"
   font_awesome: "fab fa-github fa-2x"
 
-- instagram:
-  link: "https://instagram.com/olafurg"
-  alt_text: "Instagram"
-  font_awesome: "fab fa-instagram fa-2x"
-
-- goodreads:
-  link: "https://www.goodreads.com/olafurg"
-  alt_text: "Goodreads"
-  font_awesome: "fab fa-goodreads fa-2x"
+  #- instagram:
+  #  link: "https://instagram.com/olafurg"
+  #  alt_text: "Instagram"
+  #  font_awesome: "fab fa-instagram fa-2x"
+  #
+  #- goodreads:
+  #  link: "https://www.goodreads.com/olafurg"
+  #  alt_text: "Goodreads"
+  #  font_awesome: "fab fa-goodreads fa-2x"
 
 - email:
-  link: "mailto:olafurg+website@gmail.com"
+  link: "mailto:olafurg@gmail.com"
   alt_text: "Email"
   font_awesome: "fas fa-at fa-2x"
 
+  #- keybase:
+  #  link: "https://keybase.io/olafurg"
+  #  alt_text: "Keybase"
+  #  font_awesome: "fab fa-keybase fa-2x"
