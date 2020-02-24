@@ -84,7 +84,6 @@ activate :blog do |blog|
   blog.sources = "blog/articles/{year}-{month}-{day}-{title}.html"
   blog.layout = "article_layout"
   blog.tag_template = "tag.html"
-  blog.calendar_template = "calendar.html"
   blog.paginate = true
   blog.new_article_template = File.expand_path('source/blog/blog_template.erb', __dir__)
   blog.default_extension = ".md"

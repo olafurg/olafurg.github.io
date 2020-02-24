@@ -2,8 +2,7 @@
 title: Nokkur grunnatriði fyrir öryggi á netinu
 slug: nokkur-grunnatridi
 date: 2020-02-09 20:00 UTC
-author: olig
-tags:
+author: Ólafur Guðmundsson
 published: true
 ---
 
