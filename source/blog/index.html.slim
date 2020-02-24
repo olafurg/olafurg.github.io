@@ -18,7 +18,7 @@ layout: blog_layout
         = article.date.strftime('%B %e, %Y')
       -# |  by 
       -# = link_to "Oli", "#"
-    = article.summary(250)
+    = article.summary(100)
     p
       = link_to "Continue reading", article.url
 

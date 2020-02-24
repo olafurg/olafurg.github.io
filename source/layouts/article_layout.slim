@@ -2,9 +2,9 @@
 
   .blog-post
     h1.blog-post-title
-      = current_article.title
+      = link_to current_article.title, current_article
     p.blog-post-meta
       time datetime="#{current_article.date}"
         = current_article.date.strftime('%B %e, %Y')
     = yield
-    = link_to "< Back", "/blog"
+    / = link_to "< Back", "/blog"

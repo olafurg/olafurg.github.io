@@ -6,16 +6,36 @@ body {
   color: #343a40;
 }
 
+#blog {
+  max-width: 768px;
+//  max-width: 920px;
+}
+
+img {
+  text-align: center;
+}
+
 .intro {
   text-align: center;
 }
 
-a.to-blog{
-  color: inherit;
+a {
+  color: #597499;
+  &:hover {
+    color: #0E2647;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'raleway', sans-serif;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.3rem;}
+
+h3 {
+  font-size: 1.1rem;
 }
 
 img#profile {
