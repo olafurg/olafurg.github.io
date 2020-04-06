@@ -129,6 +129,7 @@ PLATFORMS
 
 DEPENDENCIES
   builder
+  ffi
   jquery-middleman
   middleman (~> 4.0)
   middleman-blog (~> 4.0)

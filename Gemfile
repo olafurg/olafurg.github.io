@@ -9,3 +9,4 @@ gem "jquery-middleman"
 gem "robocop", require: false
 gem "nokogiri"
 gem "slim"
+gem 'ffi'
