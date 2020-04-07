@@ -81,7 +81,7 @@ end
 
 activate :blog do |blog|
   blog.permalink = "{year}-{month}-{title}.html"
-  blog.sources = "blog/articles/{year}-{month}-{day}-{title}.html"
+  blog.sources = "words/articles/{year}-{month}-{day}-{title}.html"
   blog.layout = "article_layout"
   blog.tag_template = "tag.html"
   blog.paginate = true

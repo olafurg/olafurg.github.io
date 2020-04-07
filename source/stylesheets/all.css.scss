@@ -61,6 +61,13 @@ span.fas,  span.fab {
   text-align: center;
 }
 
+.blog-post {
+  time {
+    display: inline-block;
+    min-width: 8em;
+  }
+}
+
 .blog-post-title {
   margin-top: 0;
   margin-bottom: .25rem;

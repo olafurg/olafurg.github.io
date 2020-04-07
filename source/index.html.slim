@@ -11,4 +11,4 @@
 
     = partial "social_links"
 
-    / = link_to "Words", "/blog"
+    = link_to data.site_info.blog_title, "/words", { class: "small" }
