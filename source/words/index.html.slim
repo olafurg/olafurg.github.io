@@ -9,14 +9,16 @@ layout: blog_layout
 - if page_articles.count < 1
   p No articles published.
 
-h2 
+h1
   = data.site_info.blog_title
 - page_articles.each_with_index do |article, i|
   .blog-post
-    time datetime="#{article.date}"
-      = article.date.strftime('%B %e, %Y')
     span
       = link_to article.title, article
+    span.text-muted
+      |  - 
+      time datetime="#{article.date}"
+        = article.date.strftime('%B %e, %Y')
 
 /    h2.blog-post-title
 /      = link_to article.title, article
