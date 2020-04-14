@@ -1,10 +1,17 @@
+$grey-light: #eee;
+$grey-medium: #999;
+$grey-dark: #495057;
+
+$blue-light: #597499;
+$blue-dark: #0E2647;
+
+
 body {
   padding-top: 0;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   line-height: 1.5;
-  color: #343a40;
-  background-color: #e6e6e6;
+  background-color: $grey-light;
 }
 
 #blog {
@@ -21,9 +28,9 @@ img {
 }
 
 a {
-  color: #597499;
+  color: $blue-light;
   &:hover {
-    color: #0E2647;
+    color: $blue-dark;
   }
 }
 
@@ -53,7 +60,7 @@ article {
 
 /* Fontawesome icons */
 span.fas,  span.fab {
-  color: #495057;
+  color: $grey-dark;
 }
 
 .blog-header-logo {
@@ -84,7 +91,7 @@ span.fas,  span.fab {
 
 .blog-post-meta {
   margin-bottom: 1rem;
-  color: #999;
+  color: $grey-medium;
 }
 
 .blog-pagination {
@@ -92,8 +99,8 @@ span.fas,  span.fab {
 }
 
 footer {
-  padding: 2.5rem 0;
-  color: #999;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
   text-align: center;
-  border-top: .05rem solid rgba(89,89,89,.15);
+  border-top: .05rem solid $grey-medium;
 }
