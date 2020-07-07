@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/olafurg
+--------------------------------------------------------------------
+
+I hereby claim:
+
+* I am an admin of https://olafurg.com
+* I am olafurg (https://keybase.io/olafurg) on keybase.
+* I have a public key ASCPpecs9IGwlE9u-t8-Pl6jBlPXAn6jMdi_6TJh3-w1GAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01208edd4ffbed0c5d36bb20fed670f60369971c9d04d74a1a8b7d6435acc66e624d0a",
+      "host": "keybase.io",
+      "kid": "01208fa5e72cf481b0944f6efadf3e3e5ea30653d7027ea331d8bfe93261dfec35180a",
+      "uid": "1e3c0be61b70d22d8014b23e1b009a19",
+      "username": "olafurg"
+    },
+    "merkle_root": {
+      "ctime": 1594139683,
+      "hash": "82b5a50cf47207d54348733cfc8d81aaabf241854c0a33874d29ab9e680d85489600f0d6cbcd7723c9145b6e9ba65d527d6b43f48d16b4e372c8d2df9c5e4875",
+      "hash_meta": "46f54238b801d78f78b7430da46b1b02099f19943a258c1a73b503aa46ecbb5c",
+      "seqno": 16897982
+    },
+    "service": {
+      "entropy": "qyP28MuDqTTxms6O54F1FpLm",
+      "hostname": "olafurg.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.5.1"
+  },
+  "ctime": 1594139715,
+  "expire_in": 504576000,
+  "prev": "bcd7fdb39fb27bb1bc7d9d210a5637dc387b817eb97644d0834bf7fcd3eff4d1",
+  "seqno": 13,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgj6XnLPSBsJRPbvrfPj5eowZT1wJ+ozHYv+kyYd/sNRgKp3BheWxvYWTESpcCDcQgvNf9s5+ye7G8fZ0hClY33Dh7gX65dkTQg0v3/NPv9NHEICWbbKN+SXYi2ozpSgo305LX96PYSkKYyBLvaIFuaG/pAgHCo3NpZ8RATpm57T9Mtng+OqxH/HEml988MtaZAJxGUSG8d4DJSZIW/xLRENy9uQrmUX3c8kJTQeTfELuELO6F+x8kkfkOAKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIBoN4mBe4YA3XLDAGhO+AkUCzzmp9utrPtkk1cI1km33o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/olafurg
+
+==================================================================
