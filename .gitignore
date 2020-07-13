@@ -19,3 +19,6 @@
 
 # Sublime files
 *.sublime*
+
+# Other
+/.tool-versions
