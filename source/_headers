@@ -4,7 +4,7 @@
 # - https://www.netlify.com/docs/headers-and-basic-auth/
 
 /*
-  X-Frame-Options: sameorigin
+  X-Frame-Options: SAMEORIGIN
   X-XSS-Protection: 1; mode=block
 
   # Prevent browsers from incorrectly detecting non-scripts as scripts
