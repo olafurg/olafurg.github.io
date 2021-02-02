@@ -18,21 +18,21 @@ published: true
 
 Lykilorð eiga að vera dulkóðuð á þannig hátt að það sé nánast ógerlegt að finna út hvað upprunalega lykilorðið er. Hins vegar eru margar síður sem gera það ekki nógu vel og jafnvel vista lykilorðin óbreytt og læsileg hverjum sem hefur aðgang í gagnagrunninn.
 
-Sem dæmi: Ef þú færð tölvupóst frá einhverrri þjónust og lykilorðið þitt er sent með í læsanlegum texta - þá er þjónustan engan veginn að vista lykilorðin á öruggan hátt. Hættan er því þessi:
+Sem dæmi: Ef þú færð tölvupóst frá einhverrri þjónustu og lykilorðið þitt er sent með í læsilegum texta - þá er þjónustan engan veginn að vista lykilorðin á öruggan hátt. Hættan er því þessi:
 
-1. Segjum að þú notir sama lykilorðið á tveimur þjónustum; einni sem geymir það á óöruggan hátt og annarri sem gerir það almennilega, en er þér mjög mikilvæg - t.d. Facebook eða Gmail.
+1. Segjum að þú notir sama lykilorðið á tveimur þjónustum; einni sem geymir það á óöruggan hátt og annarri sem gerir það almennilega, en er þér mjög mikilvæg, t.d. Facebook eða Gmail.
 1. Fyrri þjónustan er hökkuð og gagnagrunnurinn lekur á netið, ásamt lykilorðum í læsilegum texta.
 1. Óprúttnir aðilar fara beint í svona gagnagrunna og nota notandanafnið þitt og lykilorðið og prófa það á alls konar öðrum þjónustum til að athuga hvort eitthvað virkar. Svokallað [credential stuffing](https://en.wikipedia.org/wiki/Credential_stuffing).
-1. Þar sem þú ert að nota þetta lykilorð inn Facebook líka þá mun þetta virka þar og viðkomandi aðilar hafa þá yfirtekið Facebook reikninginn þinn.
+1. Þar sem þú ert að nota þetta lykilorð á annarri þjónustu líka (t.d. Facebook/Gmail) þá mun þetta virka þar og viðkomandi aðilar hafa þá yfirtekið þann aðgang.
 
 Passaðu því að endurnýta aldrei lykilorð. Hljómar einfalt að segja en erfitt að gera? Eina leiðin til að þetta sé raunhæft er að nota lykilorðastjóra. 👇
 
 ## Lykilorðastjóri <a name="password-manager">
-Mjög mikilvægt atriði til að auka öryggi á netinu er að nota lykilorðastjóra _(e. password manager)_. Það getur hljómað flókið fyrir fólk sem hefur aldrei notað það en er í raun sáraeinfalt.
+Mjög mikilvægt atriði til að auka öryggi á netinu er að nota lykilorðastjóra _(e. password manager)_. Það getur hljómað flókið fyrir fólk sem hefur aldrei notað slíkt en er í raun sáraeinfalt.
 
-Það sem hann gerir er að þegar þú ert að skrá þig inn á nýja þjónustu þá ferðu í lykilorðastjórann og lætur hann búa til langt, einstakt lykilorð (30 eða fleiri blanda af stöfum, táknum og tölum) og þú notar það til að skrá þig inn ("copy/paste" eða "autofill"). Lykilorðastjórinn man svo að þetta sé lykilorðið þitt fyrir þessa viðkomandi þjónustu og þú þarft aldrei nokkurn tímann að vita hvað það er.
+Það sem hann gerir er að þegar þú ert að skrá þig inn á nýja þjónustu þá ferðu í lykilorðastjórann og lætur hann búa til langt, einstakt lykilorð (30 eða fleiri stafa blanda af stöfum, táknum og tölum) og þú notar það til að skrá þig inn ("copy/paste" eða "autofill"). Lykilorðastjórinn man svo að þetta sé lykilorðið þitt fyrir þessa viðkomandi þjónustu og þú þarft aldrei nokkurn tímann að vita hvað það er.
 
-Það eru margir möguleikar, eftir því hversu langt þú vilt ganga í örygginu. Til dæmis:
+Það eru margir möguleikar, eftir því hversu langt þú vilt ganga í örygginu, en þessar lausnir eru meðal þeirra vinsælli:
 
 * [Bitwarden](https://bitwarden.com/)
 * [LastPass](https://www.lastpass.com/)
@@ -40,9 +40,9 @@ Mjög mikilvægt atriði til að auka öryggi á netinu er að nota lykilorðast
 * [Dashlane](https://www.dashlane.com/)
 * [KeePassXC](https://keepassxc.org/) (Líklega öruggasta tólið en býður ekki uppá jafn mikil þægindi og hin þar sem það býður ekki uppá samhæfingu _(e. synchronization)_ við netið, í símann og slíkt.)
 
-Ég yrði líklega sáttur með hvaða tól af þessu sem er. KeePassXC er helst fyrir þau sem eru mjög tæknileg eða paranoid og sætta sig við að hafa ekki sync í símann. Ég er hins vegar ekki þar og myndi velja eitt af hinum. Ég hef sjálfur notað LastPass í mörg ár núna og er sáttur við það. Ef ég væri að byrja núna myndi ég kannski velja eitthvað annað en ég held að hvað sem þið veljið af þessu eruði í fínum málum.
+Ég yrði líklega sáttur með hvaða tól af þessu sem er. KeePassXC er helst fyrir þau sem eru mjög tæknileg eða paranoid og sætta sig við að hafa ekki sync í símann. Ég er hins vegar ekki þar og myndi velja eitt af hinum. Ég notaði LastPass í mörg ár, Bitwarden núna, og er sáttur við bæði. Skiptir ekki öllu máli hvað af þessu þið veljið, öll eru góð.
 
-_Fyrir þá sem hafa mikinn áhuga á þessu bendi ég á nýlega yfirferð frá [The Privacy, Security, & OSINT Show](https://www.inteltechniques.com/podcast.html): [Password Managers Revisited](https://soundcloud.com/user-98066669/150-password-managers-revisited)_
+_Fyrir þá sem hafa mikinn áhuga á þessu bendi ég á Podcast þátt frá [The Privacy, Security, & OSINT Show](https://www.inteltechniques.com/podcast.html): [Password Managers Revisited](https://soundcloud.com/user-98066669/150-password-managers-revisited)_
 
 Og fyrir lykilorðastjórann er algjört lykilatriði (sem og fyrir aðrar þjónustur en hér er það engin afsökun) að vera með fjölþátta auðkenni (MFA/2FA). Sjá næsta lið hér fyrir neðan.
 
