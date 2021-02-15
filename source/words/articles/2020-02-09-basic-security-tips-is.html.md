@@ -38,7 +38,7 @@ Mjög mikilvægt atriði til að auka öryggi á netinu er að nota lykilorðast
 * [LastPass](https://www.lastpass.com/)
 * [1Password](https://1password.com/)
 * [Dashlane](https://www.dashlane.com/)
-* [KeePassXC](https://keepassxc.org/) (Líklega öruggasta tólið en býður ekki uppá jafn mikil þægindi og hin þar sem það býður ekki uppá samhæfingu _(e. synchronization)_ við netið, í símann og slíkt.)
+* [KeePassXC](https://keepassxc.org/) (Líklega öruggasta tólið en býður ekki uppá jafn mikil þægindi og hin þar sem það býður ekki uppá samhæfingu _(e. synchronization)_ við netið, í símann og slíkt nema með smá handvirkri uppsetningu. Ekki mjög flókið en yfirleitt ekki nema tæknifólk nenna að standa í því.)
 
 Ég yrði líklega sáttur með hvaða tól af þessu sem er. KeePassXC er helst fyrir þau sem eru mjög tæknileg eða paranoid og sætta sig við að hafa ekki sync í símann. Ég er hins vegar ekki þar og myndi velja eitt af hinum. Ég notaði LastPass í mörg ár, Bitwarden núna, og er sáttur við bæði. Skiptir ekki öllu máli hvað af þessu þið veljið, öll eru góð.
 
