@@ -1,12 +1,12 @@
-- twitter:
-  link: "https://twitter.com/olafurg"
-  alt_text: "Twitter @olafurg"
-  font_awesome: "fab fa-twitter fa-2x"
-
 - linkedin:
   link: "https://linkedin.com/in/olafurg"
   alt_text: "Linkedin"
   font_awesome: "fab fa-linkedin fa-2x"
+
+- twitter:
+  link: "https://twitter.com/olafurg"
+  alt_text: "Twitter @olafurg"
+  font_awesome: "fab fa-twitter fa-2x"
 
 - github:
   link: "https://github.com/olafurg"
