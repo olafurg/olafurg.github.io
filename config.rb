@@ -42,11 +42,17 @@ configure :development do
 end
 
 # Methods defined in the helpers block are available in templates
-# helpers do
-#   def helper
-#     # helping
-#   end
-# end
+helpers do
+
+  def gravatar_image(email, size)
+    require 'digest/md5'
+    email.downcase!
+    hash = Digest::MD5.hexdigest(email)
+
+    "https://gravatar.com/avatar/#{hash}?s=#{size}"
+  end
+
+end
 
 set :css_dir, "stylesheets"
 

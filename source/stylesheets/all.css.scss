@@ -104,3 +104,8 @@ footer {
   text-align: center;
   border-top: .05rem solid $grey-medium;
 }
+
+#profile {
+  -webkit-filter: grayscale(90%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}

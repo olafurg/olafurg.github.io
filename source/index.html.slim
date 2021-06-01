@@ -2,7 +2,8 @@
   .intro
     h1
       = data.site_info.author
-    = image_tag "images/profile-olafurg-2019.jpg",
+
+    = image_tag gravatar_image("olafur.g@gmail.com", 200),
                   class: "rounded",
                   id: "profile",
                   alt: "Profile photo"
