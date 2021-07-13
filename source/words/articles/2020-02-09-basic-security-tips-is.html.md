@@ -34,26 +34,27 @@ Mjög mikilvægt atriði til að auka öryggi á netinu er að nota lykilorðast
 
 Það eru margir möguleikar, eftir því hversu langt þú vilt ganga í örygginu, en þessar lausnir eru meðal þeirra vinsælli:
 
+* [1Password](https://1password.com/)
 * [Bitwarden](https://bitwarden.com/)
 * [LastPass](https://www.lastpass.com/)
-* [1Password](https://1password.com/)
 * [Dashlane](https://www.dashlane.com/)
-* [KeePassXC](https://keepassxc.org/) (Líklega öruggasta tólið en býður ekki uppá jafn mikil þægindi og hin þar sem það býður ekki uppá samhæfingu _(e. synchronization)_ við netið, í símann og slíkt nema með smá handvirkri uppsetningu. Ekki mjög flókið en yfirleitt ekki nema tæknifólk nennir að standa í því.)
+* [KeePassXC](https://keepassxc.org/)
 
-Ég yrði líklega sáttur með hvaða tól af þessu sem er. KeePassXC er helst fyrir þau sem eru mjög tæknileg eða paranoid og sætta sig við að hafa ekki sync í símann. Ég er hins vegar ekki þar og myndi velja eitt af hinum. Ég notaði LastPass í mörg ár, Bitwarden núna, og er sáttur við bæði. Skiptir ekki öllu máli hvað af þessu þið veljið, öll eru góð.
+Ég yrði líklega sáttur með hvaða tól af þessu sem er. KeePassXC er helst fyrir þau sem eru mjög tæknileg eða paranoid og sætta sig við að hafa ekki sync í símann. Ég er hins vegar ekki þar og myndi velja eitt af hinum. Ég notaði LastPass í mörg ár, Bitwarden núna, og er sáttur við bæði. Eins er 1Password mjög vinsælt og notendavænt. Skiptir ekki öllu máli hvað af þessu þið veljið, öll eru góð.
 
 _Fyrir þá sem hafa mikinn áhuga á þessu bendi ég á Podcast þátt frá [The Privacy, Security, & OSINT Show](https://www.inteltechniques.com/podcast.html): [Password Managers Revisited](https://soundcloud.com/user-98066669/150-password-managers-revisited)_
 
 Og fyrir lykilorðastjórann er algjört lykilatriði (sem og fyrir aðrar þjónustur en hér er það engin afsökun) að vera með fjölþátta auðkenni (MFA/2FA). Sjá næsta lið hér fyrir neðan.
 
 ## Fjölþátta auðkenning <a name="mfa">
-Fjölþátta auðkenning er á ensku kölluð _multifactor authentication_ eða _two-factor authentication_, oft skammsett sem MFA eða 2FA. Það sem hún gerir er að bæta við auka lagi af öryggi ofan á þetta hefðbundna _notandanafn + lykilorð_ sem flestir nota. Þetta auka lag getur verið t.d. SMS, tímabundinn kóði í appi eða af auðkenniskubbi (ekki ósvipað og bankarnir gáfu út fyrir nokkrum árum síðan).
+Fjölþátta auðkenning er á ensku kölluð _multifactor authentication_ eða _two-factor authentication_, oft skammsett sem MFA eða 2FA. Það sem hún gerir er að bæta við auka lagi af öryggi ofan á þetta hefðbundna _notandanafn + lykilorð_ sem flestir nota. Þetta auka lag getur verið t.d. tímabundinn kóði í appi, af auðkenniskubbi (ekki ósvipað og bankarnir gáfu út fyrir hér áður fyrr), eða SMS (ekki eins öruggt).
 
 Ef þú ert með MFA virkjað þá myndir þú innskrá þig svona:
 
 1. Skrá inn notandanafn og lykilorð og smella á innskrá
+1. Þjónustan biður þig núna um auka kóða, sem þú færð í MFA appinu.
 1. Opna MFA appið í símanum og finna kóðann fyrir viðkomandi þjónustu (endurnýjast á ca 20-30 sekúndum). Nú eða bíða eftir SMS með kóðanum ef þú ert með SMS virkjað.
-1. Stimpla inn kóðann á síðuna í reit sem birtist eftir skref 1 og staðfesta.
+1. Stimpla inn kóðann á síðuna í þartilgerðan reit og staðfesta.
 1. Innskráð(ur)
 
 Þetta gerir það að verkum að þó einhver myndi ná að komast yfir notandanafn og lykilorð hjá þér, nú eða bara giska rétt á það, þá kæmist viðkomandi ekki inn á reikninginn þinn þar sem viðkomandi hefur ekki aðgang að símanum þínum að auki. Lykilorðið virkar því sem fyrsti þáttur auðkenningar (1st factor) og tímabundni kóðinn (one time password eða OTP) sem annar þáttur (2nd factor).
