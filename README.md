@@ -14,3 +14,6 @@ To make changes:
   1) GitHub Pages:
      * Merge those changes into the ```master``` branch.
      * Generate and deploy changes using ```middleman deploy --build-before``` from the command line.
+
+## Cloudflare
+DNS is on Cloudflare and it's managed with Terraform. State stored in Terraform Cloud but applied locally.

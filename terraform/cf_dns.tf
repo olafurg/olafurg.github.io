@@ -78,4 +78,3 @@ resource "cloudflare_record" "terraform_managed_resource_da78c05dabcd8cb081f0d76
   value = "v=spf1 include:spf.messagingengine.com"
   zone_id = "09f360312ef3fb832693832382a84ffc"
 }
-
