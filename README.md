@@ -15,5 +15,7 @@ To make changes:
      * Merge those changes into the ```master``` branch.
      * Generate and deploy changes using ```middleman deploy --build-before``` from the command line.
 
-## Cloudflare
-DNS is on Cloudflare and it's managed with Terraform. State stored in Terraform Cloud but applied locally.
+## Cloudflare and Terraform
+The site is proxied through Cloudflare. Everything's managed with Terraform. 
+
+State is stored in Terraform Cloud and applied on a push to GitHub (default directory) if `terrafrom plan` is successful.
