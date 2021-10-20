@@ -70,15 +70,6 @@ resource "cloudflare_record" "terraform_managed_resource_faa63affcde408c4ec9e111
   zone_id = "09f360312ef3fb832693832382a84ffc"
 }
 
-resource "cloudflare_record" "terraform_managed_resource_435ec5b0cc7b5213bc1d36176ffacd5d" {
-  name = "just-testing"
-  proxied = false
-  ttl = 1
-  type = "TXT"
-  value = "variable"
-  zone_id = "09f360312ef3fb832693832382a84ffc"
-}
-
 resource "cloudflare_record" "terraform_managed_resource_da78c05dabcd8cb081f0d7643bc3c275" {
   name = "olafurg.com"
   proxied = false
