@@ -22,3 +22,5 @@
 
 # Other
 /.tool-versions
+
+.terraform
