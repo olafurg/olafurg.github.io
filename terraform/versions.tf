@@ -6,8 +6,3 @@ terraform {
     }
   }
 }
-
-provider "cloudflare" {
-  # $CLOUDFLARE_EMAIL env variable
-  # $CLOUDFLARE_API_TOKEN env variable
-}
