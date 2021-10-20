@@ -24,3 +24,4 @@
 /.tool-versions
 
 .terraform
+*.tfstate
