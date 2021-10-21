@@ -9,7 +9,7 @@ resource "cloudflare_zone_settings_override" "terraform_managed_resource_09f3603
     always_use_https = "on"
     automatic_https_rewrites = "on"
     brotli = "on"
-    min_tls_version = "1.1"
+    min_tls_version = "1.2"
     opportunistic_encryption = "on"
     ssl = "strict"
     tls_1_3 = "on"
