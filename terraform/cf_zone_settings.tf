@@ -6,6 +6,7 @@ resource "cloudflare_zone_settings_override" "terraform_managed_resource_09f3603
       html = "on"
       js = "on"
     }
+    always_online = "off"
     always_use_https = "on"
     automatic_https_rewrites = "on"
     brotli = "on"
