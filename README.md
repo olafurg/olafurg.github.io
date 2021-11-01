@@ -1,19 +1,18 @@
 # olafurg.github.com
 Personal website using [Middleman](https://middlemanapp.com/) - some notes to self.
 
+[olafurg.com]](https://olafurg.com)
+
 Branches:
- * ```source```: Source code for the Middleman website. Development here. In case of deploying through Netlify (currently the case) then deployment is from here.
- * ```master```: Generated static website. If using GitHub Pages, the site is served from here on [olafurg.com](http://olafurg.com).
+ * `source`: Source code for the Middleman website. Development here. A push to this branch deploys automatically to Cloudflare Pages.
+ * `master`: Generated static website. If using GitHub Pages, the site would be served from here. _Not used at the moment._
 
 To make changes:
-* Make changes in the ```source``` branch or a new local branch from there, eventually merged back to ```source```.
+* Make changes in the `source` branch or a new local branch from there, eventually merged back to `source`.
 * Deployment:
-  1) Netlify deploy (current):
-     * Push to GitHub.
-     * Netlify will detect a new push to this branch and trigger a deployment automatically.
-  1) GitHub Pages:
-     * Merge those changes into the ```master``` branch.
-     * Generate and deploy changes using ```middleman deploy --build-before``` from the command line.
+  * Push to GitHub's `source` branch.
+  * Cloudflare Pages will detect the change and deploy automatically.
+  * In case of Terraform changes (e.g. DNS or security settings), Terraform Cloud will detect and apply those changes.
 
 ## Cloudflare and Terraform
 The site is proxied through Cloudflare. Everything's managed with Terraform. 
