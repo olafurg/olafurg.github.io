@@ -1,4 +1,4 @@
-resource "cloudflare_record" "olafurgcom-cf-pages" {
+resource "cloudflare_record" "olafurgcom-cf-pages-root" {
   zone_id = var.zone_id
   type    = "CNAME"
   name    = "@"
