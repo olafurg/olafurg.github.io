@@ -14,12 +14,12 @@ resource "cloudflare_record" "olafurgcom-cf-pages-www" {
   proxied = true
 }
 
-// DKIM, DMARC, SPF to drop all email (since I don't have email configured)
+// DKIM, DMARC, SPF
 resource "cloudflare_record" "spf" {
   zone_id = var.zone_id
   type = "TXT"
   name = "olafurg.com"
-  value = "v=spf1 -all"
+  value = "v=spf1 include:_spf.mx.cloudflare.net ~all"
   proxied = false
 }
 
@@ -36,5 +36,33 @@ resource "cloudflare_record" "dmarc" {
   type = "TXT"
   name = "_dmarc"
   value = "v=DMARC1; p=reject; sp=reject; adkim=s; aspf=s;"
+  proxied = false
+}
+
+// MX records
+resource "cloudflare_record" "mxisaac" {
+  zone_id = var.zone_id
+  type = "MX"
+  name = "olafurg.com"
+  value = "isaac.mx.cloudflare.net"
+  priority = 65
+  proxied = false
+}
+
+resource "cloudflare_record" "mxlinda" {
+  zone_id = var.zone_id
+  type = "MX"
+  name = "olafurg.com"
+  value = "linda.mx.cloudflare.net"
+  priority = 2
+  proxied = false
+}
+
+resource "cloudflare_record" "mxamir" {
+  zone_id = var.zone_id
+  type = "MX"
+  name = "olafurg.com"
+  value = "amir.mx.cloudflare.net"
+  priority = 40
   proxied = false
 }
