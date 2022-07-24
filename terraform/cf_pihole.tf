@@ -1,6 +1,6 @@
 // Page rule to redirect
 resource "cloudflare_page_rule" "pihole_redirect" {
-  zone_id = var.cloudflare_zone_id
+  zone_id = var.zone_id
   target  = "pihole.olafurg.com/*"
 
   lifecycle { // Ignore because Cloudflare
