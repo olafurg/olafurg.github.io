@@ -1,5 +1,5 @@
 // Page rule to redirect
-resource "cloudflare_page_rule" "pihole_redirect" {
+resource "cloudflare_page_rule" "pihole-redirect" {
   zone_id = var.zone_id
   target  = "pihole.olafurg.com/*"
 
