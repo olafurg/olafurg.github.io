@@ -1,7 +1,7 @@
 // DNS
 resource "cloudflare_record" "ph" {
   zone_id = var.zone_id
-  type    = "CNAME"
+  type    = "A"
   name    = "ph"
   value   = "1.2.3.4"
   proxied = true
