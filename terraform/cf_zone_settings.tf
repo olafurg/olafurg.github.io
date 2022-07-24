@@ -12,7 +12,7 @@ resource "cloudflare_zone_settings_override" "terraform_managed_resource_09f3603
     brotli                   = "on"
     min_tls_version          = "1.2"
     opportunistic_encryption = "on"
-    ssl                      = "strict"
+    ssl                      = "flexible"
     tls_1_3                  = "on"
   }
 }
