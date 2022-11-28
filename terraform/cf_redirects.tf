@@ -13,7 +13,7 @@ locals {
 resource "cloudflare_record" "redirect-record" {
   for_each = local.redirects
 
-  zone_id = var.cloudflare_zone_id
+  zone_id = var.zone_id
   type    = "A"
   name    = each.key
   value   = "1.2.3.4" // Dummy, won't be used due to the redirect page rule
@@ -24,8 +24,8 @@ resource "cloudflare_record" "redirect-record" {
 resource "cloudflare_page_rule" "redirect-rule" {
   for_each = local.redirects
 
-  zone_id = var.cloudflare_zone_id
-  target  = format("%s.%s%s", each.key, var.ccpgames_domain, "/*")
+  zone_id = var.zone_id
+  target  = format("%s.%s%s", each.key, var.domain, "/*")
 
   lifecycle { // Ignore because Cloudflare
     ignore_changes = [priority]
