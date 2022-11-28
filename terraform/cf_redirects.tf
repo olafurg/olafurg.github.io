@@ -1,6 +1,6 @@
 // List of simple redirects
 
-// Add subdomains of ccpgames.com and their redirect destinations here
+// Add subdomains of olafurg.com and their redirect destinations here
 locals {
   redirects = {
     my = "https://www.tesla.com/ownersmanual/modely/is_is/"
