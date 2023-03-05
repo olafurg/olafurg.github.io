@@ -8,7 +8,7 @@ resource "cloudflare_ruleset" "redirect_from_list_example" {
   zone_id     = var.zone_id
   name        = "redirects"
   description = "Redirect ruleset"
-  kind        = "root"
+  kind        = "zone"
   phase       = "http_request_dynamic_redirect"
 
   rules {
