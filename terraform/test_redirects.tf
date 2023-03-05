@@ -21,8 +21,8 @@ resource "cloudflare_ruleset" "redirect_from_list_example" {
         }
       }
     }
-      description = "Redirects"
-      expression  = "(http.request.uri eq \"\" and http.host eq \"wiki.olafurg.com\")"
-      enabled     = true
-    }
+    description = "Redirects"
+    expression  = "(http.request.uri eq \"\" and http.host eq \"wiki.olafurg.com\")"
+    enabled     = true
   }
+}
