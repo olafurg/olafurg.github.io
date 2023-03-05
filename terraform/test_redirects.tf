@@ -9,7 +9,7 @@ resource "cloudflare_ruleset" "redirect_from_list_example" {
   name        = "redirects"
   description = "Redirect ruleset"
   kind        = "root"
-  phase       = "http_dynamic_redirect"
+  phase       = "http_request_dynamic_redirect"
 
   rules {
     action = "redirect"
