@@ -23,7 +23,7 @@ resource "cloudflare_ruleset" "redirect_from_list_example" {
       }
     }
     description = "Redirects"
-    expression  = "(http.request.uri eq \"\" and http.host eq \"wiki.olafurg.com\")"
+    expression  = "(http.host eq \"wiki.olafurg.com\" and not starts_with(http.request.uri, \"/display\"))"
     enabled     = true
   }
 }
