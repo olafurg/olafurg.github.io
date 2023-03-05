@@ -5,7 +5,7 @@
 # Don't do anything
 
 resource "cloudflare_ruleset" "redirect_from_list_example" {
-  zone_id = var.zone_id
+  zone_id     = var.zone_id
   name        = "redirects"
   description = "Redirect ruleset"
   kind        = "root"
@@ -19,6 +19,7 @@ resource "cloudflare_ruleset" "redirect_from_list_example" {
         target_url {
           value = "visir.is"
         }
+        preserve_query_string = false
       }
     }
     description = "Redirects"
