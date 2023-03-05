@@ -1,5 +1,5 @@
 # If wiki.olafurg.com (and nothing else)
-# Redirect to ccpgames.atlassian.com
+# Redirect to somewhere else
 
 # If wiki.olafurg.com/display/*
 # Don't do anything
