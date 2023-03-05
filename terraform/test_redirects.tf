@@ -23,6 +23,5 @@ resource "cloudflare_ruleset" "redirect_from_list_example" {
       }
     }
     expression  = "(http.request.uri eq \"\" and http.host eq \"wiki.olafurg.com\")"
-    description = "Apply redirects"
     enabled     = true
   }
