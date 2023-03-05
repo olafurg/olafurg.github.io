@@ -14,13 +14,14 @@ resource "cloudflare_ruleset" "redirect_from_list_example" {
   rules {
     action = "redirect"
     action_parameters {
-        from_value {
-          status_code = 301
-          target_url {
-            value = "visir.is"
-          }
+      from_value {
+        status_code = 301
+        target_url {
+          value = "visir.is"
         }
       }
+    }
+      description = "Redirects"
       expression  = "(http.request.uri eq \"\" and http.host eq \"wiki.olafurg.com\")"
       enabled     = true
     }
