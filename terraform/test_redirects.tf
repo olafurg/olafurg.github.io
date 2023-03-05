@@ -10,7 +10,7 @@ resource "cloudflare_record" "wiki" {
   zone_id = var.zone_id
   type    = "CNAME"
   name    = "wiki"
-  value   = "pihole" // Dummy, won't be used due to the 
+  value   = "pihole.olafurg.com" // Dummy, won't be used due to the 
   proxied = true
 }
 
