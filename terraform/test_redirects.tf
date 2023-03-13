@@ -22,6 +22,10 @@ resource "cloudflare_ruleset" "redirect_from_list_example" {
   phase       = "http_request_dynamic_redirect"
 
   rules {
+    description = "Redirects"
+    expression  = "(http.host eq \"wiki.olafurg.com\" and not starts_with(http.request.uri, \"/display\"))"
+    enabled     = true
+
     action = "redirect"
     action_parameters {
       from_value {
@@ -32,8 +36,5 @@ resource "cloudflare_ruleset" "redirect_from_list_example" {
         preserve_query_string = false
       }
     }
-    description = "Redirects"
-    expression  = "(http.host eq \"wiki.olafurg.com\" and not starts_with(http.request.uri, \"/display\"))"
-    enabled     = true
   }
 }
