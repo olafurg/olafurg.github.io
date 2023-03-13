@@ -16,8 +16,8 @@ resource "cloudflare_record" "wiki" {
 
 resource "cloudflare_ruleset" "redirect_from_list_example" {
   zone_id     = var.zone_id
-  name        = "redirects"
-  description = "Redirect ruleset"
+  name        = "Redirect wiki to visir"
+  description = "Redirect wiki subdomain to visir unless direct link to path."
   kind        = "zone"
   phase       = "http_request_dynamic_redirect"
 
@@ -27,7 +27,7 @@ resource "cloudflare_ruleset" "redirect_from_list_example" {
       from_value {
         status_code = 301
         target_url {
-          value = "visir.is"
+          value = "https://visir.is"
         }
         preserve_query_string = false
       }
