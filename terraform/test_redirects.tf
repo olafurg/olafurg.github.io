@@ -23,7 +23,7 @@ resource "cloudflare_ruleset" "redirect_from_list_example" {
 
   rules {
     description = "Redirects"
-    expression  = "(http.host eq \"wiki.olafurg.com\" and not starts_with(http.request.uri, \"/display\"))"
+    expression  = "(http.host eq \"wiki.olafurg.com\" and not starts_with(http.request.uri, \"/\"))"
     enabled     = true
 
     action = "redirect"
