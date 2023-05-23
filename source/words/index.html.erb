@@ -1,0 +1,44 @@
+---
+pageable: true
+per_page: 10
+layout: blog_layout
+---
+
+<% current_page.data.title = data.site_info.blog_title %>
+
+<% if page_articles.count < 1 %>
+  <p>No articles published.</p>
+<% end %>
+
+<h1>
+  <%= data.site_info.blog_title %>
+</h1>
+
+<% page_articles.each_with_index do |article, i| %>
+  <div class="blog-post">
+    <span>
+      <%= link_to article.title, article %>
+    </span>
+    <span class="text-muted">
+      - 
+      <time datetime="<%= article.date %>">
+        <%= article.date.strftime('%B %e, %Y') %>
+      </time>
+    </span>
+  </div>
+
+  <% unless (1 + i == page_articles.count) %>
+    <hr>
+  <% end %>
+<% end %>
+
+<% if paginate %>
+  <nav class="blog-pagination">
+    <% if prev_page %>
+      <%= link_to 'Newer', prev_page, { class: "btn btn-outline-primary" } %>
+    <% end %>
+    <% if next_page %>
+      <%= link_to 'Older', next_page, { class: "btn btn-outline-primary" } %>
+    <% end %>
+  </nav>
+<% end %>

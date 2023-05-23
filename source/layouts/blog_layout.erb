@@ -1,0 +1,30 @@
+<% wrap_layout :layout do %>
+  <div class="container" id="blog">
+    <header class="blog-header py-3">
+      <div class="row">
+        <div class="col-6 d-flex justify-content-beginning align-items-center">
+          <% unless current_page.path == "words/index.html" %>
+            <%= link_to data.site_info.blog_title, "/words", { class: "text-muted" } %>
+          <% end %>
+        </div>
+        <!-- .col-4.text-center -->
+        <!--   <%= link_to data.site_info.blog_title, "/blog", { class: "blog-header-logo text-dark" } %> -->
+        <div class="col-6 d-flex justify-content-end align-items-center">
+          <%= link_to "olafurg.com", "/", { class: "text-muted" } %>
+        </div>
+      </div>
+    </header>
+
+    <div class="container" role="main">
+      <div class="row">
+        <div class="col-md-12">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <%= partial "social_links" %>
+    </footer>
+  </div>
+<% end %>

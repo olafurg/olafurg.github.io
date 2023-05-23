@@ -1,0 +1,16 @@
+---
+title: Olafur's CV
+---
+
+<% wrap_layout :layout do %>
+
+<% cv = "files/Olafur-Gudmundsson-CV-English.pdf" %>
+
+<div class="intro">
+  <h1>
+    <%= current_page.data.title %>
+  </h1>
+  <%= link_to "Download CV", cv %>
+</div>
+
+<% end %>
