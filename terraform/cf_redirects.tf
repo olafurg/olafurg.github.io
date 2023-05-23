@@ -3,7 +3,7 @@
 // Add subdomains of olafurg.com and their redirect destinations here
 locals {
   redirects = {
-    my = "https://www.tesla.com/ownersmanual/modely/is_is/"
+    my = "https://www.tesla.com/ownersmanual/modely/en_is/"
   }
 }
 
