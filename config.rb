@@ -78,13 +78,6 @@ configure :build do
   import_file File.expand_path("_headers", config[:source]), "/_headers"
 end
 
-# This will push to the defined branch of the repo, which will
-# host it on github pages (If this is a github repository)
-activate :deploy do |deploy|
-  deploy.deploy_method = :git
-  deploy.branch = "master"
-end
-
 activate :blog do |blog|
   blog.permalink = "{year}-{month}-{title}.html"
   blog.sources = "words/articles/{year}-{month}-{day}-{title}.html"
@@ -94,6 +87,3 @@ activate :blog do |blog|
   blog.new_article_template = File.expand_path('source/words/blog_template.erb', __dir__)
   blog.default_extension = ".md"
 end
-
-# Configure slim templating engine
-set :slim, { :format => :html }

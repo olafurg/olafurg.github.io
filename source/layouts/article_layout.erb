@@ -1,0 +1,16 @@
+<% wrap_layout :blog_layout do %>
+
+  <div class="blog-post">
+    <h1 class="blog-post-title">
+      <%= link_to current_article.title, current_article %>
+    </h1>
+    <p class="blog-post-meta">
+      <time datetime="<%= current_article.date %>">
+        <%= current_article.date.strftime('%B %e, %Y') %>
+      </time>
+    </p>
+    <%= yield %>
+    <!-- <%= link_to "< Back", "/blog" %> -->
+  </div>
+
+<% end %>

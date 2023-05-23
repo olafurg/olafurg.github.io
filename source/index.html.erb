@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="intro">
+    <h1>
+      <%= data.site_info.author %>
+    </h1>
+
+    <%= image_tag gravatar_image("olafur.g@gmail.com", 200),
+                  class: "rounded",
+                  id: "profile",
+                  alt: "Profile photo" %>
+    
+    <p>
+      <%= data.site_info.tagline %>
+    </p>
+
+    <%= partial "social_links" %>
+
+    <%= link_to data.site_info.blog_title, "/words", { class: "small text-muted" } %>
+
+  </div>
+</div>
+
+
+<%# .container
+  .intro
+    h1
+      = data.site_info.author
+
+    = image_tag gravatar_image("olafur.g@gmail.com", 200),
+                  class: "rounded",
+                  id: "profile",
+                  alt: "Profile photo"
+
+    p
+      = data.site_info.tagline
+
+    = partial "social_links"
+
+    = link_to data.site_info.blog_title, "/words", { class: "small text-muted" } %>
