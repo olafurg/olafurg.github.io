@@ -15,6 +15,12 @@ To make changes:
   * In case of Terraform changes (e.g. DNS or security settings), Terraform Cloud will detect and apply those changes.
 
 ## Cloudflare and Terraform
-The site is proxied through Cloudflare. Everything's managed with Terraform.
+The site is proxied through Cloudflare. Everything infra related is managed with Terraform.
 
 State is stored in Terraform Cloud and applied on a push to GitHub (default directory) if `terrafrom plan` is successful.
+
+## Words
+Middleman blogging: https://middlemanapp.com/basics/blogging/
+
+Generating articles: `middleman article TITLE`
+
