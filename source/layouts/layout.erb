@@ -41,7 +41,7 @@
     <%= javascript_include_tag  "all", async: true %>
 
     <%= feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "#{data.site_info.blog_title}" %>
-    <%= stylesheet_link_tag "normalize", "all" %>
+    <%= stylesheet_link_tag "normalize", "all", "syntax" %>
   </head>
 
   <body>
