@@ -6,7 +6,7 @@ tags: macos, windows
 published: false
 ---
 
-I had never used macOS before in my life apart from the occasional messing about if I come across a computer shop. But for work reasons I felt I needed to get to know it better. That triggered me trying out a Macbook Pro for the first time and go through the pain of shifting from Windows.
+I had never used macOS before in my life apart from the occasional messing about if I come across them in a computer shop. But for work reasons I felt I needed to get to know it better. That triggered me trying out a Macbook Pro for the first time and go through the pain of shifting from Windows.
 
 I have mainly used Windows during my professional career but also run Linux as my daily driver for a few stints, and very frequently on the side on personal machines. So I was familiar with the "unix" way somewhat and also just been generally curiuos about macOS for a while. What the fuss is about.
 
@@ -51,6 +51,7 @@ To summarize though, I very much like the consistency, simplicity and general *f
 A few random pointers for newcomers to macOS, in no particular order:
 
 1. Go to YouTube and pick 2-3 videos at least about getting to know macOS and how to configure some basic things.
+2. Install [Homebrew](https://brew.sh).
 1. Consider installing some of these that I've found useful:
     * [Raycast](https://www.raycast.com/) - monster upgrade from Spotlight.
         * ```brew install --cask raycast```
