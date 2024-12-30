@@ -1,16 +1,12 @@
-# olafurg.github.com
+# olafurg.com
 Personal website using [Middleman](https://middlemanapp.com/) - some notes to self.
 
 [olafurg.com](https://olafurg.com)
 
-Branches:
- * `source`: Source code for the Middleman website. Development here. A push to this branch deploys automatically to Cloudflare Pages.
- * `master`: Generated static website. If using GitHub Pages, the site would be served from here. _Not used at the moment._
-
 To make changes:
-* Make changes in the `source` branch or a new local branch from there, eventually merged back to `source`.
+* Make changes in the `main` branch or a new local branch from there, eventually merged back to `main`.
 * Deployment:
-  * Push to GitHub's `source` branch.
+  * Push to GitHub's `main` branch.
   * Cloudflare Pages will detect the change and deploy automatically.
   * In case of Terraform changes (e.g. DNS or security settings), Terraform Cloud will detect and apply those changes.
 
@@ -23,4 +19,3 @@ State is stored in Terraform Cloud and applied on a push to GitHub (default dire
 Middleman blogging: https://middlemanapp.com/basics/blogging/
 
 Generating articles: `middleman article TITLE`
-
