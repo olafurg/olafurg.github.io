@@ -1,11 +1,6 @@
 resource "cloudflare_zone_settings_override" "terraform_managed_resource_09f360312ef3fb832693832382a84ffc" {
-  zone_id = "09f360312ef3fb832693832382a84ffc"
+  zone_id = var.zone_id
   settings {
-    minify {
-      css  = "on"
-      html = "on"
-      js   = "on"
-    }
     always_online            = "off"
     always_use_https         = "on"
     automatic_https_rewrites = "on"
