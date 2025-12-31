@@ -206,7 +206,7 @@ pre code {
 /* Theme Switcher Styles */
 .theme-switcher {
   position: fixed;
-  top: 0.75rem;
+  bottom: 0.75rem;
   right: 0.75rem;
   z-index: 1000;
   display: flex;
@@ -223,11 +223,6 @@ pre code {
     border-color: var(--footer-border-color);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     opacity: 1;
-  }
-
-  @media (max-width: $mobile-breakpoint) {
-    top: auto;
-    bottom: 0.75rem;
   }
 }
 
