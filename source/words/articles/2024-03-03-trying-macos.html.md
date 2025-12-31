@@ -2,7 +2,7 @@
 title: Trying macOS
 date: 2024-03-03 19:17 UTC
 author: Ólafur Guðmundsson
-tags: macos, windows
+tags: apple, macos, windows
 published: false
 ---
 
