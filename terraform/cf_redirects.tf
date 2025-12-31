@@ -16,7 +16,7 @@ resource "cloudflare_record" "redirect-record" {
   zone_id = var.zone_id
   type    = "A"
   name    = each.key
-  value   = "1.2.3.4" // Dummy, won't be used due to the redirect page rule
+  content = "1.2.3.4" // Dummy, won't be used due to the redirect page rule
   proxied = true
 }
 
