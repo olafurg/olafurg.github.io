@@ -1,6 +1,5 @@
-resource "cloudflare_zone_settings_override" "terraform_managed_resource_09f360312ef3fb832693832382a84ffc" {
-  zone_id = var.zone_id
-  settings {
+locals {
+  zone_settings = {
     always_online            = "off"
     always_use_https         = "on"
     automatic_https_rewrites = "on"
@@ -10,4 +9,12 @@ resource "cloudflare_zone_settings_override" "terraform_managed_resource_09f3603
     ssl                      = "flexible"
     tls_1_3                  = "on"
   }
+}
+
+resource "cloudflare_zone_setting" "settings" {
+  for_each = local.zone_settings
+
+  zone_id    = var.zone_id
+  setting_id = each.key
+  value      = each.value
 }

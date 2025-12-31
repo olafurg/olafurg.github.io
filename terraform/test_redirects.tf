@@ -5,13 +5,14 @@
 # Don't do anything
 
 // Cloudflare record
-resource "cloudflare_record" "wiki" {
+resource "cloudflare_dns_record" "wiki" {
 
   zone_id = var.zone_id
   type    = "CNAME"
   name    = "wiki"
-  value   = "pihole.olafurg.com" // Dummy, won't be used due to the
+  content = "pihole.olafurg.com" // Dummy, won't be used due to the
   proxied = true
+  ttl     = 3600
 }
 
 resource "cloudflare_ruleset" "redirect_from_list_example" {
@@ -21,20 +22,20 @@ resource "cloudflare_ruleset" "redirect_from_list_example" {
   kind        = "zone"
   phase       = "http_request_dynamic_redirect"
 
-  rules {
+  rules = [{
     description = "Redirects"
     expression  = "(http.host eq \"wiki.olafurg.com\" and not starts_with(http.request.uri, \"/\"))"
     enabled     = true
 
     action = "redirect"
-    action_parameters {
-      from_value {
+    action_parameters = {
+      from_value = {
         status_code = 301
-        target_url {
+        target_url = {
           value = "https://visir.is"
         }
         preserve_query_string = false
       }
     }
-  }
+  }]
 }

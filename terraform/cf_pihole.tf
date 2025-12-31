@@ -7,10 +7,10 @@ resource "cloudflare_page_rule" "pihole-redirect" {
     ignore_changes = [priority]
   }
 
-  actions {
-    forwarding_url {
+  actions = {
+    forwarding_url = {
       url         = "https://pihole.olafurg.com/admin"
-      status_code = "301"
+      status_code = 301
     }
   }
 }

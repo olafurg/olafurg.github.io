@@ -10,7 +10,7 @@ locals {
 // REDIRECT DEFINITIONS BELOW - IGNORE IF ONLY ADDING/EDITING/REMOVING REDIRECT
 
 // Cloudflare record
-resource "cloudflare_record" "redirect-record" {
+resource "cloudflare_dns_record" "redirect-record" {
   for_each = local.redirects
 
   zone_id = var.zone_id
@@ -18,6 +18,7 @@ resource "cloudflare_record" "redirect-record" {
   name    = each.key
   content = "1.2.3.4" // Dummy, won't be used due to the redirect page rule
   proxied = true
+  ttl     = 3600
 }
 
 // Page rule to redirect
@@ -31,10 +32,10 @@ resource "cloudflare_page_rule" "redirect-rule" {
     ignore_changes = [priority]
   }
 
-  actions {
-    forwarding_url {
+  actions = {
+    forwarding_url = {
       url         = each.value
-      status_code = "301"
+      status_code = 301
     }
   }
 }
