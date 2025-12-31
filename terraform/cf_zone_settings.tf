@@ -11,4 +11,3 @@ resource "cloudflare_zone_settings_override" "terraform_managed_resource_09f3603
     tls_1_3                  = "on"
   }
 }
-

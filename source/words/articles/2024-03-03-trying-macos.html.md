@@ -44,7 +44,7 @@ I made notes on the side as I tested it over the first few weeks and here are so
 
 * Widgets (from the top-right) not that useful. E.g. getting a quick view of the calendar not possible in macOS, I have to click through to open the Calendar app. This is trivial both on Windows and Linux.
 
-* It's a meme by now but I am firm on that macOS updates take way longer than Windows updates. 
+* It's a meme by now but I am firm on that macOS updates take way longer than Windows updates.
 
 To summarize though, I very much like the consistency, simplicity and general *feel* of the machine. Once you're up and running it's just so smooth. No nitpicks that you're so used to with Windows (funnily enough, often related to location, size or displaying of ... windows). Since this initial experiment I've gotten a newer more powerful machine; Macbook Pro 2021 M1. Huge difference in performance, like it even more. I will still continue to take turns, I need to be familiar with both macOS and Windows functionality and setup, but I do tend to like switching it up regularly so no complaints.
 

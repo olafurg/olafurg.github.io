@@ -66,10 +66,3 @@ resource "cloudflare_record" "mxamir" {
   priority = 40
   proxied  = false
 }
-
-resource "cloudflare_record" "whichprovider" {
-  zone_id = var.zone_id
-  type    = "CNAME"
-  name    = "whichprovider"
-  content = "which-email-provider.onrender.com"
-}
