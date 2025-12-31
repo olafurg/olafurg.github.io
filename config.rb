@@ -1,3 +1,5 @@
+require 'uglifier'
+
 ###
 # Compass
 ###
@@ -11,6 +13,10 @@
 # Page options, layouts, aliases and proxies
 ###
 activate :directory_indexes
+
+# Set default layout
+set :layout, :page_layout
+page "/words/articles*.html*", layout: :article_layout
 
 # Per-page layout changes:
 #
@@ -69,7 +75,7 @@ set :images_dir, "images"
 # Build-specific configuration
 configure :build do
   activate :minify_css
-  activate :minify_javascript
+  activate :minify_javascript, compressor: -> { Uglifier.new(harmony: true) }
 
   # Enable cache buster
   # activate :asset_hash
