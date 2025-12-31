@@ -4,17 +4,8 @@
 # - https://www.netlify.com/docs/headers-and-basic-auth/
 
 /*
-  X-Frame-Options: SAMEORIGIN
+  X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
-
-  # Prevent browsers from incorrectly detecting non-scripts as scripts
-  # https://infosec.mozilla.org/guidelines/web_security#x-content-type-options
   X-Content-Type-Options: nosniff
-
-  # Content Security Policy rules
+  Referrer-Policy: strict-origin-when-cross-origin
   Content-Security-Policy: default-src 'self'; script-src 'self' getinsights.io 'sha256-vKW0Vlf9TVPDcsZekJgzqMt+lcsE85pxwkBcFWwrfxM='; connect-src 'self' https://getinsights.io https://stackpath.bootstrapcdn.com; style-src 'self' 'sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z' https://fonts.googleapis.com https://stackpath.bootstrapcdn.com https://use.fontawesome.com; font-src 'self' https://fonts.gstatic.com https://use.fontawesome.com; img-src 'self' https://gravatar.com; object-src 'none'; frame-ancestors 'self'; base-uri 'self';
-
-  X-Frame-Options: DENY # block site from being framed
-
-  # Referer policy
-  Referrer-Policy: no-referrer, strict-origin-when-cross-origin

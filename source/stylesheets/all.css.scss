@@ -232,8 +232,8 @@ pre code {
 }
 
 .theme-btn {
-  background: none;
-  border: none;
+  background: none !important;
+  border: none !important;
   color: var(--text-color);
   cursor: pointer;
   padding: 0;
