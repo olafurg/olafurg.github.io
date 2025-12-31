@@ -63,4 +63,3 @@ Ef þú ert með MFA virkjað þá myndir þú innskrá þig svona:
 
 ## Efastu um allt <a name="scepticism">
 Að lokum er mikilvægt að vera með hæfilegt magn af efasemdum þegar maður er á netinu. Ekki trúa öllu sem þú lest. Ekki smella á neitt sem lítur eitthvað furðulega út. Tölvupóstur, Facebook færsla, vefborði á vefsíðu eða hvað sem er. Yfirleitt er hægt að sjá eitthvað furðulegt þegar hættur eru annars vegar og oft betra að loka vafraglugganum eða henda tölvupóstinum frekar en taka sénsinn.
-

@@ -23,4 +23,3 @@ State is stored in Terraform Cloud and applied on a push to GitHub (default dire
 Middleman blogging: https://middlemanapp.com/basics/blogging/
 
 Generating articles: `middleman article TITLE`
-

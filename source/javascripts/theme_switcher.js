@@ -12,7 +12,7 @@
 
     // Process dark mode application
     const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    
+
     if (isDark) {
       document.documentElement.setAttribute('data-theme', 'dark');
     } else {
