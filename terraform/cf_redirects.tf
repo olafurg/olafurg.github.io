@@ -18,7 +18,7 @@ resource "cloudflare_dns_record" "redirect-record" {
   name    = each.key
   content = "1.2.3.4" // Dummy, won't be used due to the redirect page rule
   proxied = true
-  ttl     = 3600
+  ttl     = 1
 }
 
 // Page rule to redirect

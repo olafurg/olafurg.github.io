@@ -4,7 +4,7 @@ resource "cloudflare_dns_record" "olafurgcom-cf-pages" {
   name    = "@"
   content = "olafurg-github-io.pages.dev"
   proxied = true
-  ttl     = 3600
+  ttl     = 1
 }
 
 resource "cloudflare_dns_record" "olafurgcom-cf-pages-www" {
@@ -13,7 +13,7 @@ resource "cloudflare_dns_record" "olafurgcom-cf-pages-www" {
   name    = "www"
   content = "olafurg-github-io.pages.dev"
   proxied = true
-  ttl     = 3600
+  ttl     = 1
 }
 
 // DKIM, DMARC, SPF
@@ -23,7 +23,7 @@ resource "cloudflare_dns_record" "spf" {
   name    = "olafurg.com"
   content = "v=spf1 include:_spf.mx.cloudflare.net ~all"
   proxied = false
-  ttl     = 3600
+  ttl     = 1
 }
 
 resource "cloudflare_dns_record" "dkim" {
@@ -32,7 +32,7 @@ resource "cloudflare_dns_record" "dkim" {
   name    = "*._domainkey"
   content = "v=DKIM1; p="
   proxied = false
-  ttl     = 3600
+  ttl     = 1
 }
 
 resource "cloudflare_dns_record" "dmarc" {
@@ -41,7 +41,7 @@ resource "cloudflare_dns_record" "dmarc" {
   name    = "_dmarc"
   content = "v=DMARC1; p=reject; sp=reject; adkim=s; aspf=s;"
   proxied = false
-  ttl     = 3600
+  ttl     = 1
 }
 
 // MX records
@@ -52,7 +52,7 @@ resource "cloudflare_dns_record" "mxisaac" {
   content  = "isaac.mx.cloudflare.net"
   priority = 65
   proxied  = false
-  ttl      = 3600
+  ttl      = 1
 }
 
 resource "cloudflare_dns_record" "mxlinda" {
@@ -62,7 +62,7 @@ resource "cloudflare_dns_record" "mxlinda" {
   content  = "linda.mx.cloudflare.net"
   priority = 2
   proxied  = false
-  ttl      = 3600
+  ttl      = 1
 }
 
 resource "cloudflare_dns_record" "mxamir" {
@@ -72,5 +72,5 @@ resource "cloudflare_dns_record" "mxamir" {
   content  = "amir.mx.cloudflare.net"
   priority = 40
   proxied  = false
-  ttl      = 3600
+  ttl      = 1
 }
