@@ -5,6 +5,8 @@ $grey-dark: #495057;
 $blue-light: #597499;
 $blue-dark: #0E2647;
 
+$mobile-breakpoint: 600px;
+
 :root {
   --bg-color: #{$grey-light};
   --text-color: #212529;
@@ -222,6 +224,11 @@ pre code {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     opacity: 1;
   }
+
+  @media (max-width: $mobile-breakpoint) {
+    top: auto;
+    bottom: 0.75rem;
+  }
 }
 
 .theme-btn {
@@ -251,7 +258,6 @@ pre code {
   }
 }
 
-$mobile-breakpoint: 600px;
 $list-padding: 2rem;
 $list-padding-mobile: 1.5rem;
 
