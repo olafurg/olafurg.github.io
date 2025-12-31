@@ -1,0 +1,19 @@
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "4567:4567"
+      - "35729:35729"
+    command: >
+      bash -c "bundle check || bundle install && bundle exec middleman server --bind-address 0.0.0.0"
+    volumes:
+      - .:/app
+      - bundle_data:/usr/local/bundle
+    environment:
+      - BUNDLE_PATH=/usr/local/bundle
+      - BUNDLE_BIN=/usr/local/bundle/bin
+      - PATH=/usr/local/bundle/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+volumes:
+  bundle_data:
