@@ -16,7 +16,6 @@ activate :directory_indexes
 
 # Set default layout
 set :layout, :page_layout
-page "/words/articles*.html*", layout: :article_layout
 
 # Per-page layout changes:
 #
