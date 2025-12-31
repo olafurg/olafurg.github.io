@@ -117,7 +117,10 @@ article {
 
 /* Fontawesome icons */
 span.fas,
-span.fab {
+span.fab,
+span.fa-solid,
+span.fa-brands,
+span.fa-regular {
   color: var(--text-color);
   opacity: 0.8;
 }
