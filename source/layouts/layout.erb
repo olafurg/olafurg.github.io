@@ -38,13 +38,35 @@
     <% end %>
     <title><%= title %></title>
 
+    <script>
+      (function() {
+        const theme = localStorage.getItem('theme') || 'system';
+        if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.removeAttribute('data-theme');
+        }
+      })();
+    </script>
     <%= javascript_include_tag  "all", async: true %>
+    <%= javascript_include_tag  "theme_switcher", defer: true %>
 
     <%= feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "#{data.site_info.blog_title}" %>
     <%= stylesheet_link_tag "normalize", "all", "syntax" %>
   </head>
 
   <body>
+    <div class="theme-switcher">
+      <button class="theme-btn" id="theme-light" title="Light Mode">
+        <span class="fas fa-sun"></span>
+      </button>
+      <button class="theme-btn" id="theme-dark" title="Dark Mode">
+        <span class="fas fa-moon"></span>
+      </button>
+      <button class="theme-btn" id="theme-system" title="System Preference">
+        <span class="fas fa-desktop"></span>
+      </button>
+    </div>
 
     <%= yield %>
 
