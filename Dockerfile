@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # Use the Ruby version from .ruby-version
-FROM ruby:3.3.0-slim as base
+FROM ruby:3.4.8-slim as base
 
 # Install system dependencies
 RUN apt-get update -qq && apt-get install -y \
