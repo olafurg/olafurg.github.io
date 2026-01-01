@@ -1,4 +1,4 @@
-Contact: mailto:olafurg+security@gmail.com
+Contact: mailto:security@olafurg.com
 Expires: 2027-01-01T00:00:00.000Z
 Preferred-Languages: en, is
 Canonical: https://olafurg.com/.well-known/security.txt
