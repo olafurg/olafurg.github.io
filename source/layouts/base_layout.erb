@@ -21,11 +21,18 @@
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
           crossorigin="anonymous">
 
-    <% if current_page.data.any? %>
-      <% title = current_page.data.title + " - " + data.site_info.author %>
-    <% else %>
-      <% title = data.site_info.author %>
-    <% end %>
+    <%
+      page_title = current_page.data.title
+      if defined?(tagname)
+        page_title = "Articles tagged '#{tagname}'"
+      end
+
+      if page_title
+        title = page_title + " - " + data.site_info.author
+      else
+        title = data.site_info.author
+      end
+    %>
     <title><%= title %></title>
 
     <script>

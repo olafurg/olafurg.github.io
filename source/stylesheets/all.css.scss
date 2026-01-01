@@ -164,6 +164,17 @@ span.fa-regular {
 .blog-post {
   .blog-post-title {
     margin-bottom: 0.25rem;
+
+    a {
+
+      &,
+      &:link,
+      &:visited,
+      &:hover,
+      &:active {
+        color: var(--heading-color);
+      }
+    }
   }
 
   .blog-post-meta {
