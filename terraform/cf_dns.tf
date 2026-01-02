@@ -83,3 +83,21 @@ resource "cloudflare_dns_record" "mxamir" {
   proxied  = false
   ttl      = 1
 }
+
+resource "cloudflare_dns_record" "security_contact" {
+  zone_id = var.zone_id
+  type    = "TXT"
+  name    = "_security"
+  content = "security_contact=https://olafurg.com/security"
+  proxied = false
+  ttl     = 1
+}
+
+resource "cloudflare_dns_record" "security_policy" {
+  zone_id = var.zone_id
+  type    = "TXT"
+  name    = "_security"
+  content = "security_policy=https://olafurg.com/security"
+  proxied = false
+  ttl     = 1
+}
