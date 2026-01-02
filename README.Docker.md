@@ -15,3 +15,15 @@ Then, push it to your registry, e.g. `docker push myregistry.com/myapp`.
 
 Consult Docker's [getting started](https://docs.docker.com/go/get-started-sharing/)
 docs for more detail on building and pushing.
+
+### Cleaning up (Resetting the environment)
+
+To ensure a completely clean state (removing all installed gems and data in the volume), run:
+
+`docker compose down -v`
+
+The `-v` flag is critical—it deletes the sticky `bundle_data` volume where gems are stored. This forces a fresh `bundle install` the next time you run `docker compose up`.
+
+If you also want to rebuild the Docker image from scratch (ignoring layer cache):
+
+`docker compose build --no-cache`

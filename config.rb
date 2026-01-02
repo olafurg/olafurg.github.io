@@ -1,5 +1,8 @@
 Encoding.default_external = Encoding::UTF_8
 require 'uglifier'
+require 'open-uri'
+require 'fileutils'
+require 'digest/md5'
 
 ###
 # Compass
@@ -57,11 +60,26 @@ end
 helpers do
 
   def gravatar_image(email, size)
-    require 'digest/md5'
-    email.downcase!
-    hash = Digest::MD5.hexdigest(email)
+    hash = Digest::MD5.hexdigest(email.downcase)
+    image_path = File.join(config[:source], config[:images_dir], "gravatar_#{hash}.png")
 
-    "https://gravatar.com/avatar/#{hash}?s=#{size}"
+    # Always download to ensure freshness
+    puts "Downloading Gravatar for #{email}..."
+    url = "https://gravatar.com/avatar/#{hash}?s=#{size}"
+
+    begin
+      URI.open(url) do |image|
+        FileUtils.mkdir_p(File.dirname(image_path))
+        File.open(image_path, "wb") do |file|
+          file.write(image.read)
+        end
+      end
+      puts "Gravatar saved to #{image_path}"
+    rescue => e
+      puts "Failed to download Gravatar: #{e.message}"
+    end
+
+    "gravatar_#{hash}.png"
   end
 
 end

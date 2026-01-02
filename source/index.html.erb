@@ -7,7 +7,7 @@ layout: page_layout
       <%= data.site_info.author %>
     </h1>
 
-    <%= image_tag gravatar_image("olafur.g@gmail.com", 200),
+    <%= image_tag gravatar_image(data.site_info.email, 200),
                   class: "rounded",
                   id: "profile",
                   alt: "Profile photo" %>

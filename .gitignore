@@ -28,3 +28,6 @@
 
 .terraform
 *.tfstate
+
+# Generated files
+/source/images/gravatar*.png
