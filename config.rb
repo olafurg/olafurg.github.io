@@ -18,6 +18,30 @@ require 'digest/md5'
 ###
 activate :directory_indexes
 
+# Fetch Gravatar image
+ready do
+  email = app.data.site_info.email
+  size = 200 # Fixed size based on usage
+  hash = Digest::MD5.hexdigest(email)
+  image_path = File.join("source", "images", "gravatar.png")
+
+  # Always download to ensure freshness
+  puts "Downloading Gravatar for #{email}..."
+  url = "https://gravatar.com/avatar/#{hash}?s=#{size}"
+
+  begin
+    URI.open(url) do |image|
+      FileUtils.mkdir_p(File.dirname(image_path))
+      File.open(image_path, "wb") do |file|
+        file.write(image.read)
+      end
+    end
+    puts "Gravatar saved to #{image_path}"
+  rescue => e
+    puts "Failed to download Gravatar: #{e.message}"
+  end
+end
+
 # Set default layout
 set :layout, :page_layout
 
@@ -58,30 +82,6 @@ end
 
 # Methods defined in the helpers block are available in templates
 helpers do
-
-  def gravatar_image(email, size)
-    hash = Digest::MD5.hexdigest(email.downcase)
-    image_path = File.join(config[:source], config[:images_dir], "gravatar_#{hash}.png")
-
-    # Always download to ensure freshness
-    puts "Downloading Gravatar for #{email}..."
-    url = "https://gravatar.com/avatar/#{hash}?s=#{size}"
-
-    begin
-      URI.open(url) do |image|
-        FileUtils.mkdir_p(File.dirname(image_path))
-        File.open(image_path, "wb") do |file|
-          file.write(image.read)
-        end
-      end
-      puts "Gravatar saved to #{image_path}"
-    rescue => e
-      puts "Failed to download Gravatar: #{e.message}"
-    end
-
-    "gravatar_#{hash}.png"
-  end
-
 end
 
 set :css_dir, "stylesheets"
