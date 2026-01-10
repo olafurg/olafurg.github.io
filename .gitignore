@@ -31,3 +31,8 @@
 
 # Generated files
 /source/images/gravatar*.png
+
+# Environment variables
+.env
+.env.local
+.env.production
