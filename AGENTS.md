@@ -5,16 +5,16 @@
 ### Core Commands
 ```bash
 # Docker development (recommended for consistency)
-docker-compose up
+docker compose up
 
 # Docker development with live reload
-docker-compose up --build
+docker compose up --build
 
 # Stop Docker containers
-docker-compose down
+docker compose down
 
 # Clean Docker volumes
-docker-compose down -v
+docker compose down -v
 
 # Local development (if Docker unavailable)
 bundle exec middleman server
@@ -227,23 +227,23 @@ end
 #### Docker Commands
 ```bash
 # Start development server
-docker-compose up
+docker compose up
 
 # Rebuild and start (after Gemfile changes)
-docker-compose up --build
+docker compose up --build
 
 # Stop containers
-docker-compose down
+docker compose down
 
 # Clean volumes (reset gem cache)
-docker-compose down -v
+docker compose down -v
 
 # View logs
-docker-compose logs -f
+docker compose logs -f
 
 # Execute commands in container
-docker-compose exec app bash
-docker-compose exec app bundle exec middleman build
+docker compose exec app bash
+docker compose exec app bundle exec middleman build
 ```
 
 #### Container Configuration
