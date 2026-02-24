@@ -27,6 +27,7 @@ resource "cloudflare_page_rule" "redirect-rule" {
 
   zone_id = var.zone_id
   target  = format("%s.%s%s", each.key, var.domain, "/*")
+  status  = "active"
 
   lifecycle { // Ignore because Cloudflare
     ignore_changes = [priority]
