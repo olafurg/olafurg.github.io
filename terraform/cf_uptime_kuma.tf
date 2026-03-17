@@ -52,7 +52,7 @@ resource "cloudflare_ruleset" "uptime-kuma-firewall" {
   ]
 }
 
-// ── Cloudflare Access application + policy (v5: policies nested in app) ──────
+// ── Cloudflare Access: app + policy fully inline (v5 schema) ─────────────────
 resource "cloudflare_zero_trust_access_application" "uptime-kuma" {
   account_id       = var.account_id
   name             = "Uptime Kuma"
@@ -62,23 +62,16 @@ resource "cloudflare_zero_trust_access_application" "uptime-kuma" {
 
   policies = [
     {
-      id         = cloudflare_zero_trust_access_policy.uptime-kuma-oli.id
       precedence = 1
       decision   = "allow"
-    }
-  ]
-}
-
-resource "cloudflare_zero_trust_access_policy" "uptime-kuma-oli" {
-  account_id = var.account_id
-  name       = "Allow Óli"
-  decision   = "allow"
-
-  include = [
-    {
-      email = {
-        email = "olafur.g@gmail.com"
-      }
+      name       = "Allow Óli"
+      include = [
+        {
+          email = {
+            email = "olafur.g@gmail.com"
+          }
+        }
+      ]
     }
   ]
 }
