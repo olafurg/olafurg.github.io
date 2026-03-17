@@ -48,7 +48,7 @@ resource "cloudflare_dns_record" "dmarc" {
   zone_id = var.zone_id
   type    = "TXT"
   name    = "_dmarc"
-  content = "v=DMARC1; p=reject; sp=reject; adkim=s; aspf=s; rua=mailto:e366d8b47d304fb1a63cca9477a28994@dmarc-reports.cloudflare.net;"
+  content = "v=DMARC1; p=reject; sp=reject; adkim=s; aspf=s; rua=mailto:e366d8b47d304fb1a63cca9477a28994@dmarc-reports.cloudflare.net,mailto:rua@dmarc.brevo.com;"
   proxied = false
   ttl     = 1
 }

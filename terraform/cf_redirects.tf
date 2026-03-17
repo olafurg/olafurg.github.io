@@ -4,6 +4,7 @@
 locals {
   redirects = {
     my = "https://www.tesla.com/ownersmanual/modely/en_is/"
+    mm = "https://chat.olafurg.com"
   }
 }
 
