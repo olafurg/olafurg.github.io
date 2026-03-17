@@ -18,13 +18,13 @@ resource "cloudflare_zero_trust_tunnel_cloudflared_config" "uptime-kuma" {
   config = {
     ingress = [
       {
-        hostname = "up.${var.domain}"
-        service  = "http://10.10.10.200:3001"
+        hostname       = "up.${var.domain}"
+        service        = "http://10.10.10.200:3001"
         origin_request = {}
       },
       {
-        hostname = "chat.${var.domain}"
-        service  = "http://10.10.10.201:8065"
+        hostname       = "chat.${var.domain}"
+        service        = "http://10.10.10.201:8065"
         origin_request = {}
       },
       {
@@ -52,26 +52,33 @@ resource "cloudflare_ruleset" "uptime-kuma-firewall" {
   ]
 }
 
-// ── Cloudflare Access application ────────────────────────────────────────────
+// ── Cloudflare Access application + policy (v5: policies nested in app) ──────
 resource "cloudflare_zero_trust_access_application" "uptime-kuma" {
   account_id       = var.account_id
   name             = "Uptime Kuma"
   domain           = "up.${var.domain}"
   type             = "self_hosted"
   session_duration = "24h"
+
+  policies = [
+    {
+      id         = cloudflare_zero_trust_access_policy.uptime-kuma-oli.id
+      precedence = 1
+      decision   = "allow"
+    }
+  ]
 }
 
-// ── Access policy: Óli only via email OTP ────────────────────────────────────
 resource "cloudflare_zero_trust_access_policy" "uptime-kuma-oli" {
-  account_id     = var.account_id
-  application_id = cloudflare_zero_trust_access_application.uptime-kuma.id
-  name           = "Allow Óli"
-  decision       = "allow"
-  precedence     = 1
+  account_id = var.account_id
+  name       = "Allow Óli"
+  decision   = "allow"
 
   include = [
     {
-      email = ["olafur.g@gmail.com"]
+      email = {
+        email = "olafur.g@gmail.com"
+      }
     }
   ]
 }
