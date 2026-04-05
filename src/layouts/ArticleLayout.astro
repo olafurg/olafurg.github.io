@@ -4,17 +4,18 @@ import PageLayout from './PageLayout.astro';
 interface Props {
   title: string;
   date: Date;
+  lang?: string;
 }
 
-const { title, date } = Astro.props;
+const { title, date, lang } = Astro.props;
 ---
 
-<PageLayout title={title}>
+<PageLayout title={title} lang={lang}>
   <article class="blog-post">
     <h1 class="blog-post-title">{title}</h1>
     <p class="blog-post-meta">
       <time datetime={date.toISOString()}>
-        {date.toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' })}
+        {date.toLocaleDateString(lang === 'is' ? 'is-IS' : 'en-GB', { year: 'numeric', month: 'short', day: 'numeric' })}
       </time>
     </p>
     <slot />

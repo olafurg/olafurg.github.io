@@ -3,6 +3,7 @@ title: Grunnöryggi tölvupósts — SPF, DKIM og DMARC
 slug: grunnoryggi-tolvuposts
 date: 2026-04-04 20:00 UTC
 author: Ólafur Guðmundsson
+lang: is
 tags: email, dns, security
 draft: true
 ---

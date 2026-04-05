@@ -8,6 +8,7 @@ const words = defineCollection({
     slug: z.string().optional(),
     date: z.coerce.date(),
     author: z.string().optional(),
+    lang: z.string().optional(),
     tags: z.string().optional(),
     draft: z.boolean().optional(),
   }),

@@ -3,6 +3,7 @@ title: Nokkur grunnatriði fyrir öryggi á netinu
 slug: nokkur-grunnatridi
 date: 2020-02-09 20:00 UTC
 author: Ólafur Guðmundsson
+lang: is
 ---
 
 Það eru nokkur atriði sem eru hálfgerð grundvallaratriði fyrir alla að hafa í huga þegar kemur að öryggi á netinu. Þetta er tilraun tl að lýsa þeim helstu gróflega og af hverju þau eru mikilvæg.
