@@ -1,0 +1,21 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('words', ({ data }) =>
+    import.meta.env.DEV || data.draft !== true
+  );
+  return posts.map((post) => ({
+      params: { slug: post.data.slug || post.id },
+      props: post,
+    }));
+}
+
+const post = Astro.props;
+const { Content } = await render(post);
+---
+
+<ArticleLayout title={post.data.title} date={post.data.date}>
+  <Content />
+</ArticleLayout>

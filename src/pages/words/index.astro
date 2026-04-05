@@ -1,0 +1,28 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import site from '../../data/site.json';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('words', ({ data }) =>
+    import.meta.env.DEV || data.draft !== true
+  )).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<PageLayout title={site.blogTitle}>
+  <h1>{site.blogTitle}</h1>
+
+  {posts.length === 0 && <p>No articles published.</p>}
+
+  {posts.map((post) => (
+    <div class="blog-list-item">
+      <span class="blog-post-link">
+        <a href={`/words/${post.data.slug || post.id}/`}>{post.data.title}</a>
+      </span>
+      <span class="blog-post-meta">
+        <time datetime={post.data.date.toISOString()}>
+          {post.data.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' })}
+        </time>
+      </span>
+    </div>
+  ))}
+</PageLayout>

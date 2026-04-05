@@ -1,0 +1,29 @@
+{
+  "author": "Ólafur Guðmundsson",
+  "url": "https://olafurg.com",
+  "domain": "olafurg.com",
+  "tagline": "Technology & Security",
+  "blogTitle": "Words",
+  "social": [
+    {
+      "name": "LinkedIn",
+      "link": "https://linkedin.com/in/olafurg",
+      "icon": "fa-brands fa-linkedin fa-2x"
+    },
+    {
+      "name": "Twitter/X",
+      "link": "https://x.com/olafurg",
+      "icon": "fa-brands fa-x-twitter fa-2x"
+    },
+    {
+      "name": "GitHub",
+      "link": "https://github.com/olafurg",
+      "icon": "fa-brands fa-github fa-2x"
+    },
+    {
+      "name": "Email",
+      "link": "mailto:hello@olafurg.com",
+      "icon": "fa-solid fa-at fa-2x"
+    }
+  ]
+}

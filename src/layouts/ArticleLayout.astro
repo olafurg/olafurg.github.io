@@ -1,0 +1,22 @@
+---
+import PageLayout from './PageLayout.astro';
+
+interface Props {
+  title: string;
+  date: Date;
+}
+
+const { title, date } = Astro.props;
+---
+
+<PageLayout title={title}>
+  <article class="blog-post">
+    <h1 class="blog-post-title">{title}</h1>
+    <p class="blog-post-meta">
+      <time datetime={date.toISOString()}>
+        {date.toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' })}
+      </time>
+    </p>
+    <slot />
+  </article>
+</PageLayout>
