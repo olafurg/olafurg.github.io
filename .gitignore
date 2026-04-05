@@ -18,6 +18,9 @@ dist/
 # Generated files
 public/images/gravatar*.png
 
+# Claude Code
+.claude/
+
 # Environment variables
 .env
 .env.local
