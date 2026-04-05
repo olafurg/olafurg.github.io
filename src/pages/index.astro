@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import site from '../data/site.json';
+---
+
+<BaseLayout>
+  <div class="intro">
+    <h1>{site.author}</h1>
+    <img src="/images/gravatar.png" id="profile" alt="Profile photo" />
+    <p>{site.tagline}</p>
+  </div>
+</BaseLayout>

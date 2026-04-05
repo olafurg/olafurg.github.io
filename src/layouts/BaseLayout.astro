@@ -1,0 +1,114 @@
+---
+import site from '../data/site.json';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+}
+
+const { title } = Astro.props;
+const pageTitle = title ? `${title} - ${site.author}` : site.author;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="icon" sizes="192x192" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>{pageTitle}</title>
+
+    <script is:inline>
+      (function() {
+        const theme = localStorage.getItem('theme') || 'system';
+        if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.removeAttribute('data-theme');
+        }
+      })();
+    </script>
+  </head>
+
+  <body>
+    <div class="theme-switcher">
+      <button class="theme-btn" id="theme-light" title="Light Mode">
+        <span class="fas fa-sun"></span>
+      </button>
+      <button class="theme-btn" id="theme-dark" title="Dark Mode">
+        <span class="fas fa-moon"></span>
+      </button>
+      <button class="theme-btn" id="theme-system" title="System Preference">
+        <span class="fas fa-desktop"></span>
+      </button>
+    </div>
+
+    <header class="site-header">
+      <a href="/" class="header-link">{site.domain}</a>
+      <a href="/words/" class="header-link">{site.blogTitle}</a>
+    </header>
+
+    <main class="site-main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <ul class="social-links">
+        {site.social.map((s) => (
+          <li>
+            <a href={s.link} title={s.name}>
+              <span class={s.icon}></span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </footer>
+
+    <script is:inline>
+      (function() {
+        const themeButtons = {
+          light: document.getElementById('theme-light'),
+          dark: document.getElementById('theme-dark'),
+          system: document.getElementById('theme-system')
+        };
+
+        const setTheme = (theme, save = true) => {
+          if (save) localStorage.setItem('theme', theme);
+
+          const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (isDark) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+
+          Object.keys(themeButtons).forEach(key => {
+            if (themeButtons[key]) {
+              themeButtons[key].classList.toggle('active', key === theme);
+            }
+          });
+        };
+
+        const savedTheme = localStorage.getItem('theme') || 'system';
+        setTheme(savedTheme, false);
+
+        Object.keys(themeButtons).forEach(theme => {
+          if (themeButtons[theme]) {
+            themeButtons[theme].addEventListener('click', () => setTheme(theme));
+          }
+        });
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+          if (localStorage.getItem('theme') === 'system' || !localStorage.getItem('theme')) {
+            setTheme('system', false);
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
