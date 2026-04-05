@@ -7,9 +7,9 @@ tags: email, dns, security
 draft: true
 ---
 
-Tölvupóstur er eitt elsta samskiptatólið á Internetinu og í grunninn var hann hannaður þegar ekki var mikið hugsað um öryggi. Vandamálið er einfalt: án réttra stillinga getur hver sem er sent tölvupóst og þóst vera hver sem er. Þetta er ástæðan fyrir svindlpóstum _(e. phishing)_, fölsuðum sendundum _(e. spoofing)_ og öllu þessu rusli sem fyllir innhólfin okkar.
+Það er lítið mál að setja upp tölvupóst fyrir lénið sitt með annað hvort Microsoft 365 eða Google Workspace en það vantar oft grunnstillingar til að gera uppsetninguna örugga. Vandamálið er einfalt: án réttra stillinga getur hver sem er þóst vera hver sem er. Þetta er ástæðan fyrir svindlpóstum _(e. phishing)_, fölsuðum sendundum _(e. spoofing)_ og öllu þessu rusli sem fyllir innhólfin okkar. Og ef þitt lén er ekki rétt stillt geta óprúttnir aðilar misnotað það og orsakað vandamál með að réttmætur póstur frá þér komist til skila eða komið þér á ruslpóstlista.
 
-Sem betur fer eru til þrjár DNS-færslur sem saman mynda grunnvörn gegn þessu: **SPF**, **DKIM** og **DMARC**. Þær vinna saman og hvert og eitt einungis virkilega gagnlegt þegar hin eru líka til staðar.
+Til þess að setja upp grunnvörn gegn þessu þarf þrjár DNS færslur: **SPF**, **DKIM** og **DMARC**. Þær vinna saman og hver og ein einungis virkilega gagnleg þegar hinar eru líka til staðar.
 
 1. [SPF — Hver má senda?](#spf)
 1. [DKIM — Er innihaldið óbreytt?](#dkim)
@@ -19,7 +19,7 @@ Sem betur fer eru til þrjár DNS-færslur sem saman mynda grunnvörn gegn þess
 
 ## SPF — Hver má senda? <a name="spf"></a>
 
-SPF stendur fyrir _Sender Policy Framework_. Hugmyndin er einföld: þú birtir DNS-færslu sem segir heiminum hvaða netþjónar hafa leyfi til að senda tölvupóst fyrir hönd lénsins þíns.
+SPF stendur fyrir _Sender Policy Framework_. DNS-færslua sem segir heiminum hvaða netþjónar hafa leyfi til að senda tölvupóst fyrir hönd lénsins þíns.
 
 Segjum að lénið þitt sé `fyrirtaeki.is`. Þú setur inn TXT-færslu á lénið sem lítur einhvern veginn svona út:
 
@@ -33,19 +33,19 @@ v=spf1 include:_spf.google.com include:spf.protection.outlook.com -all
 
 **Algengar gryfjur:**
 
-- SPF athugar aðeins `envelope from` sendandann (svokallaða `MAIL FROM` í SMTP), ekki `From:` hausinn sem notandinn sér. Þannig ein og sér er SPF ekki alveg nóg.
+- SPF athugar aðeins `envelope from` sendandann (svokallað `MAIL FROM` í SMTP), ekki `From:` hausinn sem notandinn sér. Þannig ein og sér er SPF ekki alveg nóg.
 - Það mega hámark vera 10 DNS-uppflettingar í SPF færslunni. Ef þú ert með margar þjónustur sem senda póst fyrir þig (markaðstól, þjónustuborð, o.s.frv.) er auðvelt að fara yfir þetta hámark og þá hættir SPF að virka.
 
 ## DKIM — Er innihaldið óbreytt? <a name="dkim"></a>
 
-DKIM stendur fyrir _DomainKeys Identified Mail_. Þetta snýst um stafræna undirritun. Þegar tölvupóstur er sendur frá þjóninum þínum er honum bætt við sérstökum haus _(e. header)_ sem inniheldur stafræna undirritun á ákveðnum hlutum póstsins.
+DKIM stendur fyrir [_DomainKeys Identified Mail_](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) og snýst um stafræna undirritun. Þegar tölvupóstur er sendur frá þínum þjóni er bætt við hann sérstökum haus _(e. header)_ sem inniheldur stafræna undirritun á ákveðnum hlutum póstsins.
 
 Opinberi lykillinn _(e. public key)_ til að staðfesta undirritunina er birtur sem DNS-færsla á léninu. Þannig getur póstþjónn móttakandans athugað hvort:
 
 1. Pósturinn kom virkilega frá aðila sem hefur aðgang að einkalyklinum _(e. private key)_ fyrir lénið.
-2. Innihald póstsins hefur ekki verið breytt á leiðinni _(e. integrity)_.
+2. Innihald póstsins hafi nokkuð verið breytt á leiðinni _(e. integrity)_.
 
-DNS-færslan lítur svona út og er sett á `selector._domainkey.fyrirtaeki.is`:
+DNS-færslan lítur nokkurn veginn svona út og er sett á `selector._domainkey.fyrirtaeki.is`:
 
 ```
 v=DKIM1; k=rsa; p=MIIBIjANBgkqh...langur lykill hér
@@ -55,7 +55,7 @@ DKIM er frábært en segir ekkert um hvað á að *gera* ef undirritun vantar e�
 
 ## DMARC — Hvað á að gera ef eitthvað fer úrskeiðis? <a name="dmarc"></a>
 
-DMARC stendur fyrir _Domain-based Message Authentication, Reporting and Conformance_. Þetta er límlagið sem tengir SPF og DKIM saman og bætir við tvennu mikilvægu:
+DMARC stendur fyrir _Domain-based Message Authentication, Reporting and Conformance_. Þetta er límlagið sem tengir SPF og DKIM saman og bætir við tveim mikilvægum pörtum:
 
 1. **Stefnu _(e. policy)_** — hvað á móttakandinn að gera við póst sem fellur á prófunum? Þrír möguleikar:
     - `none` — ekki gera neitt sérstakt, bara senda mér skýrslur (gott til að byrja með).
@@ -70,7 +70,7 @@ DNS-færslan er sett á `_dmarc.fyrirtaeki.is` og lítur svona út:
 v=DMARC1; p=reject; rua=mailto:dmarc-reports@fyrirtaeki.is; pct=100
 ```
 
-**Mikilvægt:** DMARC athugar svokallaða _alignment_ — þ.e. að lénið sem SPF eða DKIM staðfesta passi við `From:` hausinn sem notandinn sér. Þetta er lykilatriðið sem SPF ein og sér nær ekki til.
+**Mikilvægt:** DMARC athugar svokallað _alignment_ — þ.e. hvort lénið sem SPF eða DKIM staðfesta passi við `From:` hausinn sem notandinn sér. Þetta er lykilatriðið sem SPF ein og sér nær ekki til.
 
 ## Hvernig þetta vinnur saman <a name="saman"></a>
 
@@ -80,9 +80,9 @@ v=DMARC1; p=reject; rua=mailto:dmarc-reports@fyrirtaeki.is; pct=100
 2. Póstþjónninn athugar **DKIM** — er gild stafræn undirritun til staðar?
 3. Póstþjónninn athugar **DMARC** — passar SPF eða DKIM við `From:` lénið? Ef ekki, hvað segir stefnan?
 
-Til að standast DMARC þarf pósturinn að standast **annað hvort** SPF eða DKIM, *og* viðkomandi þarf að vera í _alignment_ við `From:` lénið. Þannig þarf ekki bæði að virka, en betra er að hafa hvort tveggja rétt stillt til að hafa öryggisnet.
+Til að standast DMARC þarf pósturinn að standast **annað hvort** SPF eða DKIM, *og* viðkomandi þarf að vera í _alignment_ við `From:` lénið. Þannig þarf ekki bæði að virka, en betra er að hafa hvort tveggja rétt stillt til að vera viss.
 
-Góð nálgun er að byrja á `p=none` til að safna skýrslum og sjá hvernig tölvupósturinn þinn lítur út frá utan, laga það sem þarf að laga og hækka svo í `quarantine` og að lokum `reject`.
+Góð nálgun er að byrja á reglunni `p=none` til að safna skýrslum og sjá hvernig tölvupósturinn þinn lítur út utanfrá, laga það sem þarf að laga og hækka svo í `quarantine` og að lokum `reject`.
 
 ## Bónus: MTA-STS, TLS-RPT og BIMI <a name="bonus"></a>
 
