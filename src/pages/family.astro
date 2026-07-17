@@ -1,0 +1,253 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import yaml from 'js-yaml';
+import familyRaw from '../data/family.yaml?raw';
+import { buildFamilyTree } from '../lib/familyTree.js';
+
+const familyData = yaml.load(familyRaw);
+const { nodes, edges, bounds } = buildFamilyTree(familyData);
+
+const PADDING = 80;
+const minX = bounds.minX - PADDING;
+const minY = bounds.minY - PADDING;
+const width = bounds.maxX - bounds.minX + PADDING * 2;
+const height = bounds.maxY - bounds.minY + PADDING * 2;
+const viewBox = `${minX} ${minY} ${width} ${height}`;
+
+function curve(x1, y1, x2, y2) {
+  const my = (y1 + y2) / 2;
+  return `M${x1},${y1} C${x1},${my} ${x2},${my} ${x2},${y2}`;
+}
+---
+
+<PageLayout title="Family Tree">
+  <h1>Family Tree</h1>
+  <p>
+    An animated family tree grown from a base couple: <strong>roots</strong> below are
+    ancestors, <strong>branches</strong> above are descendants. Hover a node for details.
+    Data lives in <code>src/data/family.yaml</code> — the tree below is placeholder
+    sample data.
+  </p>
+
+  <div class="tree-wrap">
+    <button class="tree-replay" type="button">↻ Replay animation</button>
+    <svg class="tree" viewBox={viewBox} role="img" aria-label="Animated family tree">
+      <g class="edges">
+        {edges.map((e) => (
+          e.kind === 'spouse' ? (
+            <line
+              class={`edge ${e.kind}`}
+              style={`--gen: ${Math.abs(e.generation)}`}
+              x1={e.x1} y1={e.y1} x2={e.x2} y2={e.y2}
+              pathLength="1"
+            />
+          ) : (
+            <path
+              class={`edge ${e.kind}`}
+              style={`--gen: ${Math.abs(e.generation)}`}
+              d={curve(e.x1, e.y1, e.x2, e.y2)}
+              pathLength="1"
+            />
+          )
+        ))}
+      </g>
+
+      <g class="nodes">
+        {nodes.map((n) => (
+          <g class={`node ${n.kind}`} style={`--gen: ${Math.abs(n.generation)}`} transform={`translate(${n.x},${n.y})`}>
+            <title>{[n.label, n.years].filter(Boolean).join(' · ')}{n.note ? ` — ${n.note}` : ''}</title>
+            <circle r={n.kind === 'base' ? 9 : 6} />
+            <text class="name" y="20" text-anchor="middle">{n.label}</text>
+            {n.years && <text class="years" y="34" text-anchor="middle">{n.years}</text>}
+          </g>
+        ))}
+      </g>
+    </svg>
+  </div>
+
+  <ul class="tree-legend">
+    <li><span class="dot base"></span> Base couple</li>
+    <li><span class="dot ancestor"></span> Ancestors (roots)</li>
+    <li><span class="dot descendant"></span> Descendants (branches)</li>
+  </ul>
+</PageLayout>
+
+<style>
+  .tree-wrap {
+    position: relative;
+    margin-block: 2rem;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 0.5rem;
+  }
+
+  .tree-replay {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    z-index: 1;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.3rem 0.7rem;
+    cursor: pointer;
+    opacity: 0.75;
+    transition: opacity 0.2s;
+  }
+
+  .tree-replay:hover {
+    opacity: 1;
+  }
+
+  svg.tree {
+    display: block;
+    width: 100%;
+    min-width: 480px;
+    height: auto;
+  }
+
+  .edge {
+    fill: none;
+    stroke: var(--border);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 0.7s ease;
+    transition-delay: calc(var(--gen) * 200ms);
+  }
+
+  .edge.spouse {
+    stroke: var(--link);
+    stroke-width: 3;
+  }
+
+  .tree.in-view .edge {
+    stroke-dashoffset: 0;
+  }
+
+  .node circle {
+    stroke-width: 2;
+    opacity: 0;
+    transform: scale(0.3);
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition-delay: calc(var(--gen) * 200ms + 0.35s);
+  }
+
+  .node.base circle {
+    fill: var(--link);
+    stroke: var(--link-hover);
+  }
+
+  .node.ancestor circle {
+    fill: var(--bg);
+    stroke: var(--link);
+  }
+
+  .node.descendant circle {
+    fill: var(--link-hover);
+    stroke: var(--link);
+  }
+
+  .node text {
+    font-family: 'Inter', sans-serif;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    transition-delay: calc(var(--gen) * 200ms + 0.5s);
+  }
+
+  .node .name {
+    font-size: 13px;
+    fill: var(--text);
+  }
+
+  .node .years {
+    font-size: 11px;
+    fill: var(--meta);
+  }
+
+  .tree.in-view .node circle {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .tree.in-view .node text {
+    opacity: 1;
+  }
+
+  .tree-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--meta);
+  }
+
+  .tree-legend li {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .tree-legend .dot {
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    border: 2px solid var(--link);
+  }
+
+  .tree-legend .dot.base { background: var(--link); }
+  .tree-legend .dot.ancestor { background: var(--bg); }
+  .tree-legend .dot.descendant { background: var(--link-hover); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .edge {
+      transition: none;
+      stroke-dashoffset: 0;
+    }
+    .node circle,
+    .node text {
+      transition: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  const svg = document.querySelector('.tree');
+  const replayBtn = document.querySelector('.tree-replay');
+
+  const play = () => {
+    if (!svg) return;
+    svg.classList.remove('in-view');
+    void svg.getBoundingClientRect();
+    requestAnimationFrame(() => svg.classList.add('in-view'));
+  };
+
+  if (svg) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            svg.classList.add('in-view');
+            observer.disconnect();
+          }
+        }
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(svg);
+  }
+
+  replayBtn?.addEventListener('click', play);
+</script>

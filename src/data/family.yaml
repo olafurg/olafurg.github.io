@@ -1,0 +1,100 @@
+# Family tree data
+# -----------------
+# baseIds: the two people the tree is centered on (e.g. you + your partner).
+#          Their ancestors ("roots") are drawn growing downward below them,
+#          their descendants ("branches") are drawn growing upward above them.
+#
+# Each entry under `people`:
+#   id          unique string, referenced by other entries' `parents` / `spouseIds`
+#   firstName   required
+#   lastName    optional
+#   born        optional, a year or free text (e.g. 1990, "c. 1900")
+#   died        optional. If set, the FULL name is shown (public record).
+#               If omitted, the person is treated as living and only their
+#               FIRST NAME is shown, to protect living relatives' privacy.
+#   displayName optional override, shown verbatim instead of the computed name
+#   parents     optional array of up to 2 ids (biological/adoptive parents)
+#   spouseIds   optional array of ids (spouses/partners — draws the marriage line)
+#   note        optional short text shown in the node's tooltip on hover
+#
+# This file ships with placeholder sample data so the page renders out of
+# the box. Replace the entries below with your real family details — ids
+# can be anything as long as they're unique and referenced consistently.
+
+baseIds: [me, partner]
+
+people:
+  - id: me
+    firstName: Me
+    born: 1990
+    parents: [dad, mum]
+    spouseIds: [partner]
+
+  - id: partner
+    firstName: Partner
+    born: 1991
+    parents: [partnerDad, partnerMum]
+    spouseIds: [me]
+
+  # --- roots: my side ---
+  - id: dad
+    firstName: John
+    lastName: Sample
+    born: 1960
+    died: 2022
+    parents: [grandpaP, grandmaP]
+
+  - id: mum
+    firstName: Mary
+    lastName: Sample
+    born: 1962
+    parents: [grandpaM, grandmaM]
+
+  - id: grandpaP
+    firstName: George
+    lastName: Sample
+    born: 1932
+    died: 2001
+
+  - id: grandmaP
+    firstName: Alice
+    lastName: Sample
+    born: 1935
+    died: 2010
+
+  - id: grandpaM
+    firstName: Peter
+    lastName: Old
+    born: 1930
+    died: 1998
+
+  - id: grandmaM
+    firstName: Helen
+    lastName: Old
+    born: 1934
+    died: 2015
+
+  # --- roots: partner's side (grandparents intentionally omitted here, to
+  #     show that partial/incomplete data is fine — the tree just stops
+  #     growing where the data does) ---
+  - id: partnerDad
+    firstName: Robert
+    lastName: Other
+    born: 1958
+    died: 2019
+
+  - id: partnerMum
+    firstName: Susan
+    lastName: Other
+    born: 1961
+
+  # --- branches: descendants ---
+  - id: kid1
+    firstName: Kid
+    born: 2018
+    parents: [me, partner]
+
+  - id: kid2
+    firstName: Kiddo
+    born: 2021
+    parents: [me, partner]
