@@ -1,55 +1,57 @@
 # AGENTS.md - Development Guidelines
 
-## 🚀 Core Commands (Docker Only)
-All local development **must** be performed via Docker Compose to ensure environment consistency.
+## 🚀 Core Commands
+Node version is pinned in `.mise.toml` (run `mise install` to match it).
 ```bash
-docker compose up         # Start dev server (localhost:4567, LiveReload:35729)
-docker compose up --build  # Rebuild after Gemfile changes
-docker compose down -v    # Reset environment & gem cache
-docker compose exec app bundle exec middleman build  # Production build
-docker compose exec app bundle exec middleman article "TITLE" # Scaffold blog post
-docker compose run --rm app pre-commit run --all-files # Manual lint check
+npm install        # Install dependencies
+npm run dev        # Start dev server (localhost:4321)
+npm run build      # Download Gravatar, then production build into dist/
+npm run preview    # Serve the production build locally
 ```
+`npm run build` needs network access to gravatar.com (see `scripts/gravatar.mjs`).
 
 ## 📂 Project Structure
-- `/source/layouts/`: ERB templates (`base_layout.erb` is the root)
-- `/source/words/articles/`: Blog posts (`YYYY-MM-DD-title.html.md`)
-- `/source/stylesheets/`: SCSS (managed via `all.css.scss`)
-- `/source/javascripts/`: Vanilla JS / jQuery (`all.js`, `theme_switcher.js`)
-- `/data/`: YAML data files (site info, social links)
-- `/_headers`: Netlify/Cloudflare security headers & CSP
+- `/src/layouts/`: Astro layouts (`BaseLayout.astro` is the root; `PageLayout` and `ArticleLayout` wrap it)
+- `/src/pages/`: Routes (`words/` is the blog index and `[...slug].astro` renders posts)
+- `/src/content/words/`: Blog posts (`YYYY-MM-DD-title.md`), images in `attachments/`
+- `/src/content.config.ts`: Content collection schema for posts
+- `/src/styles/global.css`: All site styles
+- `/src/data/site.json`: Site info and social links
+- `/public/`: Static files copied as-is (`_headers`, fonts, CV, `.well-known/security.txt`)
+- `/scripts/`: Build helpers
+- `/terraform/`: Cloudflare DNS and redirects
 
 ## 🛠️ Coding Standards
 
-### Ruby & Middleman
+### Astro
 - **Encoding**: Always use UTF-8.
-- **Partials**: Use `<%= partial "name" %>` (omitting the underscore).
-- **Helpers**: Defined in `config.rb` helper block.
+- **Components**: Keep shared markup in layouts; pages stay thin.
+- **Inline scripts**: Use `<script is:inline>` only when the script must run before paint (e.g. theme).
 
-### Frontend (SCSS & JS)
+### Frontend (CSS & JS)
 - **CSS**: Mobile-first, BEM-like naming (`.block__element--modifier`).
 - **Theming**: Use CSS Custom Properties (`:root` vs `[data-theme='dark']`).
-- **JS**: Use ES6+; wrap scripts in IIFEs; use `localStorage` for theme persistence.
-- **jQuery**: Allowed for DOM manipulation where it simplifies logic.
+- **JS**: Vanilla ES6+; wrap inline scripts in IIFEs; use `localStorage` for theme persistence.
 
 ### Naming Conventions
-- **Files**: snake_case (e.g., `theme_switcher.js`).
+- **Files**: kebab-case for content, PascalCase for Astro layouts/components.
 - **Classes**: kebab-case (e.g., `.blog-post`).
 - **JS Variables/Functions**: camelCase.
 - **Constants**: UPPER_SNAKE_CASE.
 
 ## 📝 Content & Assets
-- **Blog Posts**: Require YAML front matter (`title`, `date`, `published`).
-- **Images**: Optimize for web; store in `/source/images/`.
+- **Blog Posts**: Front matter needs `title` and `date`; optional `slug`, `author`, `tags`, `draft: true` hides a post.
+- **Images**: Put post images in `src/content/words/attachments/` so Astro optimizes them.
+- **Fonts**: Self-hosted in `/public/fonts/`; no external font CDNs.
 - **Accessibility**: Semantic HTML, proper heading hierarchy, and alt text.
 
 ## 🛡️ Security & Performance
-- **CSP**: Managed in `source/_headers`. Whitelist external domains and use hashes for inline scripts.
+- **CSP**: Managed in `public/_headers`. Only whitelist domains the site actually loads from.
 - **HSTS**: Always enforced (HSTS header in `_headers`).
-- **Assets**: Minified automatically in production builds (`config.rb`).
+- **security.txt**: `public/.well-known/security.txt`; bump `Expires` before it lapses.
+- **Dependencies**: Dependabot opens weekly npm update PRs; run `npm audit` before merging.
 
 ## 🔄 Deployment Workflow
 1. **Feature branch**: `feature/your-change`.
-2. **Pre-commit**: Docker-based hooks ensure linting/formatting pass.
+2. **Verify**: `npm run build` must pass.
 3. **CI/CD**: Cloudflare Pages automatically deploys on push to `main`.
-4. **Build**: Verify via `docker compose exec app bundle exec middleman build --clean`.
