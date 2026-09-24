@@ -49,7 +49,7 @@ npm run preview    # Serve the production build locally
 - **CSP**: Managed in `public/_headers`. Only whitelist domains the site actually loads from.
 - **HSTS**: Always enforced (HSTS header in `_headers`).
 - **security.txt**: `public/.well-known/security.txt`; bump `Expires` before it lapses.
-- **Dependencies**: Dependabot opens weekly npm update PRs; run `npm audit` before merging.
+- **Dependencies**: Dependabot opens weekly npm and monthly Terraform provider update PRs; run `npm audit` before merging npm ones.
 
 ## 🔄 Deployment Workflow
 1. **Feature branch**: `feature/your-change`.
